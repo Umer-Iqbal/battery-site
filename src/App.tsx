@@ -60,7 +60,7 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
         <SkipLink />
