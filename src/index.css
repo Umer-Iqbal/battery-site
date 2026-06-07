@@ -31,34 +31,6 @@
     --sky-day: 45 100% 96%;
     --sky-night: 220 30% 94%;
   }
-
-  .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 203 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 90 64% 48%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 203 100% 50%;
-    --surface-elevated: 0 0% 10%;
-    --energy-solar: 45 93% 55%;
-    --energy-grid: 217 91% 65%;
-    --energy-backup: 90 64% 52%;
-    --sky-day: 220 40% 12%;
-    --sky-night: 230 35% 8%;
-  }
 }
 
 @layer base {
@@ -130,10 +102,6 @@
 
 .glass {
   @apply rounded-lg bg-foreground/5 backdrop-blur-lg border border-border;
-}
-
-.dark .glass {
-  @apply bg-white/5;
 }
 
 .text-gradient {
