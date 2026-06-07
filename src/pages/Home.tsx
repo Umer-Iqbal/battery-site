@@ -22,8 +22,8 @@ export default function Home() {
     >
       <Hero />
       <SpecStrip />
-      <EnergyFlow />
-      <DayNightCycle />
+      {/* <EnergyFlow /> */}
+      {/* <DayNightCycle /> */}
       <SmartTechnology />
 
       {/* Mobile App — full-bleed Tesla-style */}
