@@ -63,7 +63,7 @@ export default function DayNightCycle() {
         <div className="relative rounded-lg border border-border bg-surface-elevated p-8 md:p-12 overflow-hidden min-h-[500px]">
           {/* Theme-aware sky layers */}
           <div
-            className="absolute inset-0 transition-opacity duration-700 pointer-events-none bg-[hsl(var(--sky-day))] dark:bg-[hsl(var(--sky-night))]"
+            className="absolute inset-0 transition-opacity duration-700 pointer-events-none bg-[hsl(var(--sky-day))]"
             style={{ opacity: skyOpacity }}
           />
           <div
@@ -74,23 +74,6 @@ export default function DayNightCycle() {
             className="absolute inset-0 transition-opacity duration-700 pointer-events-none bg-gradient-to-b from-energy-grid/10 via-transparent to-primary/5"
             style={{ opacity: isNight ? 0.6 : twilight }}
           />
-
-          {/* Stars — dark mode only */}
-          <div
-            className="absolute inset-0 transition-opacity duration-700 pointer-events-none dark:block hidden"
-            style={{ opacity: isNight ? 1 : 0 }}
-          >
-            {Array.from({ length: 20 }).map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-1 h-1 bg-foreground/30 rounded-full"
-                style={{
-                  top: `${10 + (i * 17) % 40}%`,
-                  left: `${5 + (i * 23) % 90}%`,
-                }}
-              />
-            ))}
-          </div>
 
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center h-full">
             {/* Solar */}
