@@ -30,7 +30,7 @@ export const products: Product[] = [
       'Dimensions': '151 x 98 x 101 mm',
       'Weight': '1.8 kg'
     },
-    image: '/images/nexvolt_product_lineup_1780678717697.png'
+    image: '/images/small.png'
   },
   {
     id: 'nv-12100',
@@ -49,7 +49,7 @@ export const products: Product[] = [
       'Dimensions': '329 x 172 x 214 mm',
       'Weight': '11 kg'
     },
-    image: '/images/nexvolt_product_lineup_1780678717697.png'
+    image: '/images/medium.png'
   },
   {
     id: 'nv-48100',
@@ -68,6 +68,6 @@ export const products: Product[] = [
       'Dimensions': '442 x 480 x 133 mm',
       'Weight': '44 kg'
     },
-    image: '/images/nexvolt_battery_3d_render_1780678669823.png'
+    image: '/images/large.png'
   }
 ];

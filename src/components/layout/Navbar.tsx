@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/utils/cn';
-import ThemeToggle from '@/components/ui/ThemeToggle';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
@@ -71,7 +70,6 @@ export default function Navbar() {
               )}
             </Link>
           ))}
-          <ThemeToggle />
           <Link to="/contact" className="btn-primary !px-5 !py-2 text-xs">
             Get Quote
           </Link>
@@ -80,7 +78,6 @@ export default function Navbar() {
 
         {/* Mobile */}
         <div className="flex lg:hidden items-center gap-3">
-          <ThemeToggle />
           <button
             type="button"
             className="text-foreground"
