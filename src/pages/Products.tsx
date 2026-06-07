@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { products, Product } from '../data/products';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { cn } from '@/utils/cn';
 import LazyImage from '@/components/ui/LazyImage';
 import { Search, Grid, List as ListIcon, ArrowRight } from 'lucide-react';
@@ -9,9 +9,27 @@ import { Search, Grid, List as ListIcon, ArrowRight } from 'lucide-react';
 const categories = ['All', 'Residential', 'Commercial', 'Portable'];
 
 export default function Products() {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryParam = searchParams.get('category');
+  const validCategory = categories.includes(categoryParam ?? '') ? categoryParam! : 'All';
+
+  const [activeCategory, setActiveCategory] = useState(validCategory);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    setActiveCategory(validCategory);
+  }, [validCategory]);
+
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    if (cat === 'All') {
+      searchParams.delete('category');
+    } else {
+      searchParams.set('category', cat);
+    }
+    setSearchParams(searchParams, { replace: true });
+  };
 
   const filteredProducts = products.filter(product => {
     const matchesCategory = activeCategory === 'All' || product.category === activeCategory;
@@ -33,18 +51,18 @@ export default function Products() {
             <p className="text-muted-foreground">High-performance energy solutions tailored for every need.</p>
           </div>
 
-          <div className="flex bg-muted p-1 rounded-sm border border-border">
+          <div className="flex bg-muted p-1 rounded-lg border border-border">
             <button
               type="button"
               onClick={() => setViewMode('grid')}
-              className={cn('p-2 rounded-sm transition-all', viewMode === 'grid' ? 'bg-foreground text-background' : 'text-muted-foreground hover:text-foreground')}
+              className={cn('p-2 rounded-lg transition-all', viewMode === 'grid' ? 'bg-foreground text-background' : 'text-muted-foreground hover:text-foreground')}
             >
               <Grid size={20} />
             </button>
             <button
               type="button"
               onClick={() => setViewMode('list')}
-              className={cn('p-2 rounded-sm transition-all', viewMode === 'list' ? 'bg-foreground text-background' : 'text-muted-foreground hover:text-foreground')}
+              className={cn('p-2 rounded-lg transition-all', viewMode === 'list' ? 'bg-foreground text-background' : 'text-muted-foreground hover:text-foreground')}
             >
               <ListIcon size={20} />
             </button>
@@ -59,7 +77,7 @@ export default function Products() {
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-background border border-border rounded-sm py-3 pl-12 pr-6 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+              className="w-full bg-background border border-border rounded-lg py-3 pl-12 pr-6 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
             />
           </div>
 
@@ -68,9 +86,9 @@ export default function Products() {
               <button
                 key={cat}
                 type="button"
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => handleCategoryChange(cat)}
                 className={cn(
-                  'px-5 py-3 rounded-sm border transition-all text-sm font-medium',
+                  'px-5 py-3 rounded-lg border transition-all text-sm font-medium',
                   activeCategory === cat
                     ? 'bg-primary/10 border-primary text-primary'
                     : 'bg-background border-border text-muted-foreground hover:text-foreground'
@@ -98,7 +116,18 @@ export default function Products() {
 
         {filteredProducts.length === 0 && (
           <div className="text-center py-24">
-            <h3 className="text-xl text-muted-foreground">No products found matching your criteria.</h3>
+            <h3 className="text-xl text-foreground mb-2">No products found</h3>
+            <p className="text-muted-foreground mb-6">Try adjusting your search or category filter.</p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchQuery('');
+                handleCategoryChange('All');
+              }}
+              className="btn-secondary"
+            >
+              Clear filters
+            </button>
           </div>
         )}
       </div>
@@ -114,9 +143,9 @@ function ProductCard({ product, viewMode }: { product: Product; viewMode: 'grid'
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="border border-border p-6 flex flex-col md:flex-row gap-8 items-center group hover:border-primary/30 transition-colors bg-background"
+        className="card-interactive p-6 flex flex-col md:flex-row gap-8 items-center group"
       >
-        <div className="w-full md:w-48 aspect-square overflow-hidden bg-muted p-4">
+        <div className="w-full md:w-48 aspect-square rounded-lg overflow-hidden bg-muted p-4">
           <LazyImage src={product.image} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
         </div>
         <div className="flex-grow">
@@ -125,7 +154,7 @@ function ProductCard({ product, viewMode }: { product: Product; viewMode: 'grid'
           <p className="text-muted-foreground mb-4 max-w-xl text-sm">{product.description}</p>
           <div className="flex flex-wrap gap-2">
             {Object.entries(product.specs).slice(0, 3).map(([key, value]) => (
-              <div key={key} className="text-xs bg-muted px-3 py-1 rounded-sm text-muted-foreground">
+              <div key={key} className="text-xs bg-muted px-3 py-1 rounded-lg text-muted-foreground">
                 <span className="font-medium text-foreground">{key}:</span> {value}
               </div>
             ))}
@@ -133,7 +162,7 @@ function ProductCard({ product, viewMode }: { product: Product; viewMode: 'grid'
         </div>
         <Link
           to={`/products/${product.slug}`}
-          className="min-w-[160px] py-3 bg-foreground text-background font-medium rounded-sm text-center hover:opacity-90 transition-all flex items-center justify-center gap-2 text-sm"
+          className="min-w-[160px] py-3 bg-foreground text-background font-medium rounded-lg text-center hover:opacity-90 transition-all flex items-center justify-center gap-2 text-sm"
         >
           View Details
           <ArrowRight size={16} />
@@ -148,11 +177,11 @@ function ProductCard({ product, viewMode }: { product: Product; viewMode: 'grid'
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      className="border border-border p-6 flex flex-col h-full group hover:border-primary/30 transition-colors bg-background"
+      className="card-interactive p-6 flex flex-col h-full group"
     >
-      <div className="aspect-square mb-6 p-4 bg-muted overflow-hidden relative">
+      <div className="aspect-square rounded-lg mb-6 p-4 bg-muted overflow-hidden relative">
         <LazyImage src={product.image} alt={product.name} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
-        <div className="absolute top-3 right-3 px-2 py-0.5 bg-primary text-primary-foreground text-[10px] font-medium uppercase rounded-sm">
+        <div className="absolute top-3 right-3 px-2 py-0.5 bg-primary text-primary-foreground text-[10px] font-medium uppercase rounded-lg">
           {product.category}
         </div>
       </div>
@@ -173,7 +202,7 @@ function ProductCard({ product, viewMode }: { product: Product; viewMode: 'grid'
 
       <Link
         to={`/products/${product.slug}`}
-        className="py-3 border border-border hover:bg-foreground hover:text-background text-foreground font-medium rounded-sm text-center transition-all flex items-center justify-center gap-2 text-sm"
+        className="py-3 border border-border hover:bg-foreground hover:text-background text-foreground font-medium rounded-lg text-center transition-all flex items-center justify-center gap-2 text-sm"
       >
         View Details
         <ArrowRight size={16} />

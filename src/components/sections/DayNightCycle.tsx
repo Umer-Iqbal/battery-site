@@ -60,7 +60,7 @@ export default function DayNightCycle() {
           </p>
         </div>
 
-        <div className="relative border border-border bg-surface-elevated p-8 md:p-12 overflow-hidden min-h-[500px]">
+        <div className="relative rounded-lg border border-border bg-surface-elevated p-8 md:p-12 overflow-hidden min-h-[500px]">
           {/* Theme-aware sky layers */}
           <div
             className="absolute inset-0 transition-opacity duration-700 pointer-events-none bg-[hsl(var(--sky-day))] dark:bg-[hsl(var(--sky-night))]"
@@ -98,7 +98,7 @@ export default function DayNightCycle() {
               <motion.div
                 animate={{ scale: 0.85 + solar * 0.25, opacity: 0.25 + solar * 0.75 }}
                 transition={{ duration: 0.4 }}
-                className="w-32 h-32 bg-muted rounded-sm border border-border flex items-center justify-center mx-auto"
+                className="w-32 h-32 bg-muted rounded-lg border border-border flex items-center justify-center mx-auto"
               >
                 <Sun
                   size={64}
@@ -116,7 +116,7 @@ export default function DayNightCycle() {
 
             {/* Battery */}
             <div className="text-center relative">
-              <div className="w-48 h-72 bg-muted rounded-sm border border-border mx-auto p-6 flex flex-col justify-between overflow-hidden relative">
+              <div className="w-48 h-72 bg-muted rounded-lg border border-border mx-auto p-6 flex flex-col justify-between overflow-hidden relative">
                 <div
                   className={cn(
                     'w-20 h-20 rounded-full border-4 mx-auto transition-all duration-500 flex items-center justify-center',
@@ -171,7 +171,7 @@ export default function DayNightCycle() {
               <motion.div
                 animate={{ opacity: 0.4 + (1 - solar) * 0.6 }}
                 transition={{ duration: 0.4 }}
-                className="w-32 h-32 bg-muted rounded-sm border border-border flex items-center justify-center mx-auto"
+                className="w-32 h-32 bg-muted rounded-lg border border-border flex items-center justify-center mx-auto"
               >
                 <Home
                   size={64}

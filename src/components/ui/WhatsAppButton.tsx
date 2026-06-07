@@ -15,7 +15,7 @@ export default function WhatsAppButton({ variant = 'navbar', className }: WhatsA
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          'min-w-[200px] px-8 py-3.5 border border-accent/50 text-foreground font-medium rounded-sm',
+          'min-w-[200px] px-8 py-3.5 border border-accent/50 text-foreground font-medium rounded-lg',
           'hover:bg-accent/10 transition-colors text-sm tracking-wide flex flex-col items-center gap-0.5',
           className
         )}
@@ -36,7 +36,7 @@ export default function WhatsAppButton({ variant = 'navbar', className }: WhatsA
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          'inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground font-medium rounded-sm hover:opacity-90 transition-opacity text-sm',
+          'inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground font-medium rounded-lg hover:opacity-90 transition-opacity text-sm',
           className
         )}
       >
@@ -52,7 +52,7 @@ export default function WhatsAppButton({ variant = 'navbar', className }: WhatsA
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-sm hover:opacity-90 transition-opacity',
+        'flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-opacity',
         className
       )}
     >

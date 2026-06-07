@@ -5,6 +5,9 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
 import SeoHead from './components/SeoHead';
+import SkipLink from './components/ui/SkipLink';
+import ScrollToTop from './components/ui/ScrollToTop';
+import FloatingWhatsApp from './components/ui/FloatingWhatsApp';
 import { routeSeo, defaultSeo } from './lib/seo-config';
 
 const Home = lazy(() => import('./pages/Home'));
@@ -58,7 +61,9 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+        <SkipLink />
         <Navbar />
         <ErrorBoundary
           fallback={
@@ -78,10 +83,13 @@ function App() {
           }
         >
           <Suspense fallback={<PageLoader />}>
-            <AnimatedRoutes />
+            <main id="main-content">
+              <AnimatedRoutes />
+            </main>
           </Suspense>
         </ErrorBoundary>
         <Footer />
+        <FloatingWhatsApp />
       </div>
     </Router>
   );

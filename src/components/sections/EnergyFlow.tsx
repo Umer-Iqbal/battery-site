@@ -101,8 +101,9 @@ export default function EnergyFlow() {
               key={mode.id}
               type="button"
               onClick={() => setActiveMode(mode.id)}
+              aria-pressed={activeMode === mode.id}
               className={cn(
-                'px-6 py-3 rounded-sm flex items-center gap-2 transition-all border text-sm font-medium',
+                'px-6 py-3 rounded-lg flex items-center gap-2 transition-all border text-sm font-medium',
                 activeMode === mode.id
                   ? cn(mode.borderActive, 'text-foreground')
                   : 'bg-background border-border text-muted-foreground hover:text-foreground'
@@ -114,14 +115,14 @@ export default function EnergyFlow() {
           ))}
         </div>
 
-        <div className="relative max-w-5xl mx-auto border border-border bg-background p-8 md:p-12">
+        <div className="relative max-w-5xl mx-auto rounded-lg border border-border bg-background p-8 md:p-12">
           <div className="grid grid-cols-3 gap-8 md:gap-12 relative min-h-[300px]">
             {/* Sources */}
             <div className="flex flex-col justify-between items-center py-6 z-10">
               <motion.div
                 animate={{ scale: activeMode === 'solar' ? 1.05 : 1, opacity: activeMode === 'solar' ? 1 : 0.5 }}
                 className={cn(
-                  'w-20 h-20 md:w-24 md:h-24 rounded-sm flex items-center justify-center border transition-all duration-500',
+                  'w-20 h-20 md:w-24 md:h-24 rounded-lg flex items-center justify-center border transition-all duration-500',
                   activeMode === 'solar' ? modes[0].borderActive : 'border-border bg-muted',
                   activeMode === 'solar' && 'ring-2 ring-energy-solar/20'
                 )}
@@ -131,7 +132,7 @@ export default function EnergyFlow() {
               <motion.div
                 animate={{ scale: activeMode === 'grid' ? 1.05 : 1, opacity: activeMode === 'grid' ? 1 : 0.5 }}
                 className={cn(
-                  'w-20 h-20 md:w-24 md:h-24 rounded-sm flex items-center justify-center border transition-all duration-500',
+                  'w-20 h-20 md:w-24 md:h-24 rounded-lg flex items-center justify-center border transition-all duration-500',
                   activeMode === 'grid' ? modes[1].borderActive : 'border-border bg-muted',
                   activeMode === 'grid' && 'ring-2 ring-energy-grid/20'
                 )}
@@ -142,7 +143,7 @@ export default function EnergyFlow() {
 
             {/* Battery */}
             <div className="flex items-center justify-center relative z-10">
-              <div className="relative w-36 md:w-48 h-52 md:h-64 bg-muted rounded-sm border border-border p-5 flex flex-col justify-between overflow-hidden ring-2 ring-primary/10">
+              <div className="relative w-36 md:w-48 h-52 md:h-64 bg-muted rounded-lg border border-border p-5 flex flex-col justify-between overflow-hidden ring-2 ring-primary/10">
                 <motion.div
                   animate={{ height: `${soc}%` }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
