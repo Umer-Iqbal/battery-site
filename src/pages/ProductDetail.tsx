@@ -61,7 +61,7 @@ export default function ProductDetail() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="px-8 py-3.5 bg-foreground text-background font-medium rounded-sm hover:opacity-90 transition-opacity flex items-center gap-2 text-sm"
+                  className="px-8 py-3.5 bg-foreground text-background font-medium rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2 text-sm"
                 >
                   Inquire Now <MessageSquare size={18} />
                 </Link>
@@ -80,7 +80,7 @@ export default function ProductDetail() {
         <div className="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
           {product.features.map((feature, i) => (
             <div key={i} className="flex flex-col gap-3 text-center items-center">
-              <div className="w-10 h-10 bg-muted rounded-sm flex items-center justify-center text-primary">
+              <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-primary">
                 {i % 4 === 0 && <ShieldCheck size={20} />}
                 {i % 4 === 1 && <Zap size={20} />}
                 {i % 4 === 2 && <RefreshCcw size={20} />}
@@ -97,7 +97,7 @@ export default function ProductDetail() {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-semibold tracking-tight mb-10 text-center text-foreground">Technical Specifications</h2>
-            <div className="border border-border overflow-hidden bg-background">
+            <div className="rounded-lg border border-border overflow-hidden bg-background">
               <table className="w-full text-left text-sm">
                 <tbody>
                   {Object.entries(product.specs).map(([key, value], i) => (
@@ -126,7 +126,7 @@ export default function ProductDetail() {
           <p className="text-muted-foreground mb-8">
             Explore our full range of residential and commercial energy storage solutions.
           </p>
-          <Link to="/products" className="inline-block px-8 py-3.5 bg-foreground text-background font-medium rounded-sm hover:opacity-90 transition-opacity text-sm">
+          <Link to="/products" className="inline-block px-8 py-3.5 bg-foreground text-background font-medium rounded-lg hover:opacity-90 transition-opacity text-sm">
             View All Products
           </Link>
         </div>

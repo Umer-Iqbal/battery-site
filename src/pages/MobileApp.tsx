@@ -53,7 +53,7 @@ export default function MobileApp() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {appFeatures.slice(0, 4).map((f, i) => (
                 <div key={i} className="flex gap-4 items-center">
-                  <div className="w-10 h-10 bg-muted rounded-sm flex items-center justify-center shrink-0 border border-border">
+                  <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center shrink-0 border border-border">
                     {f.icon}
                   </div>
                   <div>
@@ -74,7 +74,7 @@ export default function MobileApp() {
               <LazyImage src="/images/nexvolt_mobile_app_mockup_1780678692443.png" alt="App Mockup" className="w-full max-w-lg mx-auto" />
             </motion.div>
 
-            <div className="absolute top-1/4 -right-10 border border-border bg-surface-elevated p-4 rounded-sm z-20">
+            <div className="absolute top-1/4 -right-10 border border-border bg-surface-elevated p-4 rounded-lg z-20">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-accent rounded-full" />
                 <span className="text-xs font-medium text-foreground">System Status: Optimal</span>
@@ -85,8 +85,8 @@ export default function MobileApp() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {appFeatures.map((feature, i) => (
-            <div key={i} className="p-8 border border-border bg-background hover:border-primary/30 transition-colors group">
-              <div className="w-14 h-14 bg-muted rounded-sm flex items-center justify-center mb-6 border border-border group-hover:scale-105 transition-transform">
+            <div key={i} className="p-8 rounded-lg border border-border bg-background hover:border-primary/30 transition-colors group">
+              <div className="w-14 h-14 bg-muted rounded-lg flex items-center justify-center mb-6 border border-border group-hover:scale-105 transition-transform">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-foreground">{feature.title}</h3>

@@ -50,7 +50,7 @@ export default function SmartTechnology() {
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${reversed ? 'lg:direction-rtl' : ''}`}
               >
                 <div className={reversed ? 'lg:order-2' : ''}>
-                  <div className="w-12 h-12 rounded-sm border border-border flex items-center justify-center mb-6 text-primary">
+                  <div className="w-12 h-12 rounded-lg border border-border flex items-center justify-center mb-6 text-primary">
                     <Icon size={24} />
                   </div>
                   <h3 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4 text-foreground">
@@ -61,10 +61,18 @@ export default function SmartTechnology() {
                   </p>
                 </div>
 
-                <div className={`aspect-[4/3] bg-secondary border border-border flex items-center justify-center ${reversed ? 'lg:order-1' : ''}`}>
-                  <div className="text-center px-8">
-                    <Icon size={48} className="text-primary mx-auto mb-4 opacity-60" />
-                    <p className="text-sm text-muted-foreground uppercase tracking-widest">{feature.visual}</p>
+                <div
+                  className={`aspect-[4/3] rounded-lg border border-border flex items-center justify-center relative overflow-hidden ${reversed ? 'lg:order-1' : ''}`}
+                  style={{
+                    background: `radial-gradient(ellipse at 30% 40%, hsl(var(--primary) / 0.08) 0%, transparent 60%), linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--muted)) 100%)`,
+                  }}
+                >
+                  <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%)', backgroundSize: '12px 12px' }} />
+                  <div className="text-center px-8 relative z-10">
+                    <div className="w-20 h-20 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-5">
+                      <Icon size={36} className="text-primary" />
+                    </div>
+                    <p className="text-sm text-muted-foreground uppercase tracking-widest max-w-[200px] mx-auto leading-relaxed">{feature.visual}</p>
                   </div>
                 </div>
               </motion.div>

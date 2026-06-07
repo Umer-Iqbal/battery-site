@@ -18,7 +18,7 @@ function ResultsPanel({ results, compact = false }: { results: ReturnType<typeof
   const { recommendation } = results;
 
   return (
-    <div className={`border border-primary/30 bg-primary/5 p-6 ${compact ? '' : 'rounded-sm'}`}>
+    <div className="rounded-lg border border-primary/30 bg-primary/5 p-6">
       <h3 className="text-sm font-medium uppercase tracking-widest text-primary mb-4">Live Recommendation</h3>
 
       <div className="space-y-4 text-sm">
@@ -114,7 +114,7 @@ export default function EnergyCalculator() {
     >
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
-          <div className="w-14 h-14 bg-primary/10 rounded-sm flex items-center justify-center mx-auto mb-6">
+          <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6">
             <Calculator className="text-primary" size={28} />
           </div>
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 text-foreground">Energy Calculator</h1>
@@ -133,9 +133,9 @@ export default function EnergyCalculator() {
               <button
                 type="button"
                 onClick={() => setMode('quick')}
-                className="border border-border bg-surface-elevated p-10 text-left hover:border-primary/40 transition-colors group"
+                className="rounded-lg border border-border bg-surface-elevated p-10 text-left hover:border-primary/40 transition-colors group"
               >
-                <div className="w-16 h-16 bg-energy-grid/10 rounded-sm flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-energy-grid/10 rounded-lg flex items-center justify-center mb-6">
                   <Zap className="text-energy-grid" size={32} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-foreground">Quick Estimate</h3>
@@ -148,9 +148,9 @@ export default function EnergyCalculator() {
               <button
                 type="button"
                 onClick={() => setMode('advanced')}
-                className="border border-border bg-surface-elevated p-10 text-left hover:border-primary/40 transition-colors group"
+                className="rounded-lg border border-border bg-surface-elevated p-10 text-left hover:border-primary/40 transition-colors group"
               >
-                <div className="w-16 h-16 bg-accent/10 rounded-sm flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
                   <Home className="text-accent" size={32} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-foreground">Advanced Load Audit</h3>
@@ -170,7 +170,7 @@ export default function EnergyCalculator() {
               exit={{ opacity: 0, x: -30 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8"
             >
-              <div className="border border-border bg-surface-elevated p-8 space-y-10">
+              <div className="rounded-lg border border-border bg-surface-elevated p-8 space-y-10">
                 <button type="button" onClick={() => setMode('selection')} className="flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm transition-colors">
                   <ArrowLeft size={16} /> Back
                 </button>
@@ -213,7 +213,7 @@ export default function EnergyCalculator() {
                 <button
                   type="button"
                   onClick={() => { setResultsSource('quick'); setMode('results'); }}
-                  className="w-full py-4 bg-foreground text-background font-medium rounded-sm hover:opacity-90 transition-opacity"
+                  className="w-full py-4 bg-foreground text-background font-medium rounded-lg hover:opacity-90 transition-opacity"
                 >
                   View Full Results
                 </button>
@@ -231,7 +231,7 @@ export default function EnergyCalculator() {
               exit={{ opacity: 0, x: -30 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8"
             >
-              <div className="border border-border bg-surface-elevated p-8 space-y-6">
+              <div className="rounded-lg border border-border bg-surface-elevated p-8 space-y-6">
                 <button type="button" onClick={() => setMode('selection')} className="flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm transition-colors">
                   <ArrowLeft size={16} /> Back
                 </button>
@@ -245,7 +245,7 @@ export default function EnergyCalculator() {
 
                 <div className="space-y-4 max-h-[400px] overflow-y-auto">
                   {appliances.map((app, i) => (
-                    <div key={i} className="grid grid-cols-12 gap-2 items-end border border-border p-4 rounded-sm bg-background">
+                    <div key={i} className="grid grid-cols-12 gap-2 items-end border border-border p-4 rounded-lg bg-background">
                       <div className="col-span-12 sm:col-span-4">
                         <label className="text-xs text-muted-foreground">Name</label>
                         <input value={app.name} onChange={(e) => updateAppliance(i, 'name', e.target.value)} className="form-input py-2 text-sm" />
@@ -291,7 +291,7 @@ export default function EnergyCalculator() {
                 <button
                   type="button"
                   onClick={() => { setDailyLoad(advancedDailyKwh); setResultsSource('advanced'); setMode('results'); }}
-                  className="w-full py-4 bg-foreground text-background font-medium rounded-sm hover:opacity-90 transition-opacity"
+                  className="w-full py-4 bg-foreground text-background font-medium rounded-lg hover:opacity-90 transition-opacity"
                 >
                   View Full Results
                 </button>
@@ -310,13 +310,13 @@ export default function EnergyCalculator() {
             >
               <ResultsPanel results={displayResults} />
 
-              <div className="border border-border bg-surface-elevated p-8">
+              <div className="rounded-lg border border-border bg-surface-elevated p-8">
                 <h3 className="text-xl font-semibold mb-6 text-foreground">Get Detailed Proposal</h3>
                 <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={(e) => e.preventDefault()}>
                   <input type="text" placeholder="Full Name" className="form-input" />
                   <input type="email" placeholder="Email Address" className="form-input" />
                   <input type="tel" placeholder="Phone Number" className="form-input" />
-                  <button type="submit" className="bg-foreground text-background font-medium rounded-sm flex items-center justify-center gap-2 hover:opacity-90">
+                  <button type="submit" className="bg-foreground text-background font-medium rounded-lg flex items-center justify-center gap-2 hover:opacity-90">
                     Submit <Send size={16} />
                   </button>
                 </form>

@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-black text-sm">NV</span>
               </div>
               <span className="text-lg font-semibold tracking-tight text-foreground">NexVolt</span>
@@ -23,9 +23,9 @@ export default function Footer() {
             <h4 className="text-foreground font-medium mb-4 text-sm uppercase tracking-widest">Products</h4>
             <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
               <li><Link to="/products" className="hover:text-foreground transition-colors">All Products</Link></li>
-              <li><Link to="/products" className="hover:text-foreground transition-colors">Residential</Link></li>
-              <li><Link to="/products" className="hover:text-foreground transition-colors">Commercial</Link></li>
-              <li><Link to="/products" className="hover:text-foreground transition-colors">Portable</Link></li>
+              <li><Link to="/products?category=Residential" className="hover:text-foreground transition-colors">Residential</Link></li>
+              <li><Link to="/products?category=Commercial" className="hover:text-foreground transition-colors">Commercial</Link></li>
+              <li><Link to="/products?category=Portable" className="hover:text-foreground transition-colors">Portable</Link></li>
             </ul>
           </div>
 
@@ -53,10 +53,9 @@ export default function Footer() {
           <p className="text-muted-foreground text-sm">
             © {currentYear} NexVolt Technology Ltd. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
-            <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            Engineered in Pakistan
+          </p>
         </div>
       </div>
     </footer>

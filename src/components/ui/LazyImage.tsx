@@ -21,7 +21,7 @@ export default function LazyImage({
     return (
       <div
         className={cn(
-          'flex flex-col items-center justify-center gap-2 bg-muted text-muted-foreground rounded-sm',
+          'flex flex-col items-center justify-center gap-2 bg-muted text-muted-foreground rounded-lg',
           fallbackClassName ?? className
         )}
         role="img"

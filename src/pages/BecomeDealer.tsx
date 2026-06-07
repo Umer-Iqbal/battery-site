@@ -53,7 +53,7 @@ export default function BecomeDealer() {
             </div>
           </div>
 
-          <div className="border border-border bg-surface-elevated p-10 md:p-14 relative">
+          <div className="rounded-lg border border-border bg-surface-elevated p-10 md:p-14 relative">
             <h2 className="text-2xl font-semibold mb-8 text-foreground">Dealer Application</h2>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -96,7 +96,7 @@ export default function BecomeDealer() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-foreground text-background font-medium rounded-sm hover:opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full py-4 bg-foreground text-background font-medium rounded-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Application'}
                 <Send size={18} />
@@ -112,7 +112,7 @@ export default function BecomeDealer() {
 function BenefitItem({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
   return (
     <div className="flex gap-6 items-start">
-      <div className="w-12 h-12 bg-muted rounded-sm flex items-center justify-center shrink-0 border border-border">
+      <div className="w-12 h-12 bg-muted rounded-lg flex items-center justify-center shrink-0 border border-border">
         {icon}
       </div>
       <div>

@@ -81,9 +81,9 @@ export default function Home() {
               <Link
                 key={product.id}
                 to={`/products/${product.slug}`}
-                className="group border border-border bg-background hover:border-primary/40 transition-colors p-6"
+                className="group card-interactive p-6"
               >
-                <div className="aspect-square bg-muted mb-6 flex items-center justify-center overflow-hidden">
+                <div className="aspect-square rounded-lg bg-muted mb-6 flex items-center justify-center overflow-hidden">
                   <LazyImage
                     src={product.image}
                     alt={product.name}
@@ -100,10 +100,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center">
-            <Link
-              to="/products"
-              className="inline-flex items-center gap-2 px-8 py-3.5 border border-foreground/30 text-foreground font-medium rounded-sm hover:bg-foreground/5 transition-colors text-sm"
-            >
+            <Link to="/products" className="btn-secondary">
               View All Products
               <ArrowRight size={16} />
             </Link>
@@ -123,10 +120,7 @@ export default function Home() {
           <p className="text-muted-foreground text-lg mb-10">
             Join Pakistan&apos;s fastest growing energy storage distribution network.
           </p>
-          <Link
-            to="/become-dealer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-foreground text-background font-medium rounded-sm hover:opacity-90 transition-opacity text-sm"
-          >
+          <Link to="/become-dealer" className="btn-primary">
             Apply for Dealership
             <ArrowRight size={16} />
           </Link>

@@ -20,10 +20,7 @@ export default function CalculatorPreview() {
             Find the right NexVolt battery capacity, estimated backup runtime, and potential savings
             for your home or business.
           </p>
-          <Link
-            to="/calculator"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-foreground text-background font-medium rounded-sm hover:opacity-90 transition-opacity text-sm tracking-wide"
-          >
+          <Link to="/calculator" className="btn-primary">
             Start Energy Calculator
             <ArrowRight size={16} />
           </Link>
