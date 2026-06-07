@@ -30,7 +30,7 @@ export const products: Product[] = [
       'Dimensions': '151 x 98 x 101 mm',
       'Weight': '1.8 kg'
     },
-    image: '/images/small.png'
+    image: `${import.meta.env.BASE_URL}images/small.png`
   },
   {
     id: 'nv-12100',

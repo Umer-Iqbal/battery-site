@@ -56,7 +56,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <LazyImage
-              src="/images/nexvolt_mobile_app_mockup_1780678692443.png"
+              src={`${import.meta.env.BASE_URL}images/nexvolt_mobile_app_mockup_1780678692443.png`}
               alt="NexVolt Mobile App"
               className="w-full max-w-sm mx-auto"
             />

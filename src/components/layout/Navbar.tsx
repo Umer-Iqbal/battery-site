@@ -114,7 +114,7 @@ export default function Navbar() {
               <Link to="/contact" className="btn-primary w-full justify-center mt-2">
                 Get Quote
               </Link>
-              <WhatsAppButton variant="inline" className="w-full justify-center"><img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="NexVolt Logo" className="h-8 w-auto object-contain" /></WhatsAppButton>
+              <WhatsAppButton variant="inline" className="w-full justify-center" />
             </div>
           </motion.div>
         )}

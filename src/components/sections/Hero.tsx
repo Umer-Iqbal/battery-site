@@ -10,7 +10,7 @@ export default function Hero() {
       {/* Full-bleed product image */}
       <div className="absolute inset-0">
         <LazyImage
-          src="/images/hero-battery.png"
+          src={`${import.meta.env.BASE_URL}images/hero-battery.png`}
           alt="NexVolt LiFePO4 Battery System"
           className="w-full h-full object-cover object-center"
           fallbackClassName="w-full h-full min-h-screen"

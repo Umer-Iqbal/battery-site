@@ -71,7 +71,7 @@ export default function MobileApp() {
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               className="relative z-10"
             >
-              <LazyImage src="/images/nexvolt_mobile_app_mockup_1780678692443.png" alt="App Mockup" className="w-full max-w-lg mx-auto" />
+              <LazyImage src={`${import.meta.env.BASE_URL}images/nexvolt_mobile_app_mockup_1780678692443.png`} alt="App Mockup" className="w-full max-w-lg mx-auto" />
             </motion.div>
 
             <div className="absolute top-1/4 -right-10 border border-border bg-surface-elevated p-4 rounded-lg z-20">
