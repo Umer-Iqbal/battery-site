@@ -1,4 +1,4 @@
--- NexVolt Initial Schema
+-- Enersol Initial Schema (was NexVolt)
 
 -- Products Table
 CREATE TABLE products (

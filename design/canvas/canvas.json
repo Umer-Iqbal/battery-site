@@ -1,0 +1,78 @@
+{
+  "pages": [
+    { "id": "page-2", "name": "Screens" },
+    { "id": "page-1", "name": "Brand" },
+    { "id": "page-3", "name": "Not chosen" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "page": "page-2", "title": "Homepage — desktop", "x": 0, "y": 0, "w": 1440, "h": 6700 },
+    { "file": "Category.dc.html", "page": "page-2", "title": "Category — tabs are live", "x": 1560, "y": 0, "w": 1440, "h": 1460 },
+    { "file": "Product.dc.html", "page": "page-2", "title": "Product detail — e-bike", "x": 1560, "y": 1580, "w": 1440, "h": 2560 },
+    { "file": "MobileHome.dc.html", "page": "page-2", "title": "Homepage — 390px", "x": 3120, "y": 0, "w": 390, "h": 3000 },
+    { "file": "MobileNav.dc.html", "page": "page-2", "title": "Menu open — 390px", "x": 3600, "y": 0, "w": 390, "h": 844 },
+
+    { "file": "MarkC.dc.html", "page": "page-1", "title": "Enersol mark — Hex Cell", "x": 0, "y": 0, "w": 1180, "h": 930 },
+
+    { "file": "MarkA.dc.html", "page": "page-3", "title": "Option A — Charge E", "x": 0, "y": 0, "w": 880, "h": 930 },
+    { "file": "MarkB.dc.html", "page": "page-3", "title": "Option B — Solar Arc", "x": 960, "y": 0, "w": 880, "h": 930 }
+  ],
+  "annotations": [
+    {
+      "id": "chosen-mark",
+      "page": "page-1",
+      "x": 1300,
+      "y": 0,
+      "w": 560,
+      "text": "THIS IS THE ENERSOL MARK\n\nYou picked Hex Cell. It is now the logo everywhere — navbar, footer,\nfavicon, app icon — and it is swapped into all five screens on the\nScreens page. Go look at it in the real navbar there; that is the\ntest that matters.\n\nThe two marks you didn't pick are parked on the \"Not chosen\" page\nrather than deleted, in case you want to revisit.\n\nNEXT, when you say go: I draw this as real SVG files\n(logo.svg, logo-mark.svg, favicon.svg) plus a shared Logo component,\nand wire it into the site along with the NexVolt to Enersol rename.\n\nOne thing to watch: the offset opening at the top is what makes this\nmark yours, and it is the first thing to close up at small sizes.\nCheck the 16px sample before we commit."
+    },
+    {
+      "id": "not-chosen",
+      "page": "page-3",
+      "x": 0,
+      "y": -220,
+      "w": 700,
+      "text": "NOT CHOSEN — kept for reference only\n\nA (Charge E) and B (Solar Arc). Neither is used anywhere on the\nScreens page any more. Say the word and I'll delete this page."
+    },
+    {
+      "id": "hero-photo-gap",
+      "page": "page-2",
+      "x": -520,
+      "y": 40,
+      "w": 440,
+      "text": "PRODUCT SHOTS: LOGO SWAPPED IN THE IMAGE\n\nThe hero and all three battery renders had NEXVOLT printed on the case.\nI removed it and printed the Hex Cell mark in its place, in the image\nitself \u2014 so nothing on the site carries the old brand any more.\n\nThat is a repair, not a replacement. These are still stills of one\nbattery. Worth budgeting a proper re-render per family, and the\ne-bikes have no photography at all yet."
+    },
+    {
+      "id": "family-band-note",
+      "page": "page-2",
+      "x": -520,
+      "y": 880,
+      "w": 440,
+      "text": "THIS BAND IS THE ACTUAL CHANGE\n\nFour cards: two you can buy, two marked Coming soon with no link\nand no hover lift. That is what makes the site read as a range\nrather than a battery shop with a bike bolted on — and adding\nsolar later is just flipping one card's status."
+    },
+    {
+      "id": "category-live",
+      "page": "page-2",
+      "x": 1560,
+      "y": -300,
+      "w": 620,
+      "text": "THE CONTROLS HERE ACTUALLY WORK — CLICK THEM\n\nEverything else on this canvas is a still mockup. This one is live so you\ncan feel the two-level structure: family tabs on top, that family's own\nfilters underneath.\n\nTry: Electric Bikes (the two spec chips switch from Voltage/Capacity to\nMotor/Range) · Solar or Inverters (a real panel, not an empty grid) ·\nBatteries then Commercial (empty — you have no Commercial product yet,\nand today's live site has that same dead filter in its footer).\n\nThe grid/list toggle and Clear filters work now too."
+    },
+    {
+      "id": "product-note",
+      "page": "page-2",
+      "x": 3120,
+      "y": 3160,
+      "w": 620,
+      "text": "E-BIKE DETAIL PAGE — DELIBERATELY NOT A BATTERY\n\nBuilt as a bike to prove the template generalises. Two things changed\nfrom today's page:\n\n1. The four-across strip under the hero now carries real numbers with\nunits (motor, range, top speed, pack) instead of feature labels with\nbattery icons.\n\n2. Because of that, the feature list needed its own home — the\n\"What you get\" section. That is the one section I added; say the word\nand I'll fold it back into the strip instead.\n\nEvery figure in square brackets is a placeholder I invented. Send me\nthe real specs and prices and I'll drop them in."
+    },
+    {
+      "id": "mobile-note",
+      "page": "page-2",
+      "x": 3120,
+      "y": -300,
+      "w": 420,
+      "text": "PHONE WIDTH — 390px\n\nMost of your traffic. The four families stack as two full cards\nplus a two-up row for the pair that isn't live yet.\n\nNo fake status bar and no fake keyboard drawn — the real phone\nputs those on top.\n\nEvery tap target is at least 44px (the two \"View …\" links were\n24px in the first version — fixed)."
+    }
+  ],
+  "launch": { "view": "canvas", "page": "page-2" }
+}

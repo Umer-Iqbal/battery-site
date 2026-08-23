@@ -141,3 +141,13 @@
 .day-night-slider::-moz-range-thumb {
   @apply w-5 h-5 rounded-full bg-primary border-0 shadow-lg shadow-primary/40 cursor-grab;
 }
+
+  /* Scrollable without visible scrollbar chrome — for tab strips that only
+     need to scroll on narrow screens. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }

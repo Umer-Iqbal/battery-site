@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #FFFFFF; color: #0A0A0A; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Outfit', system-ui, sans-serif; margin: 0; }
+    p { margin: 0; }
+    a { color: #009DFF; text-decoration: none; }
+    a:hover { color: #0081D1; }
+    .wrap { width: 1400px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
+    .card { border-radius: 16px; border: 1px solid #E5E5E5; background: #FFFFFF; box-sizing: border-box; padding: 24px; display: flex; flex-direction: column; height: 100%; }
+    .well { aspect-ratio: 1 / 1; border-radius: 16px; background: #F5F5F5; margin-bottom: 24px; padding: 16px; box-sizing: border-box; overflow: hidden; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .badge { position: absolute; top: 12px; right: 12px; padding: 2px 8px; background: #009DFF; color: #FAFAFA; font-size: 10px; line-height: 16px; font-weight: 500; text-transform: uppercase; border-radius: 16px; }
+    .cardTitle { font-size: 18px; line-height: 28px; font-weight: 600; color: #0A0A0A; margin-bottom: 8px; }
+    .cardDesc { font-size: 14px; line-height: 20px; color: #737373; margin-bottom: 24px; flex-grow: 1; }
+    .specLabel { font-size: 10px; line-height: 14px; color: #737373; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
+    .specValue { font-size: 14px; line-height: 20px; font-weight: 500; color: #0A0A0A; }
+    .cardCta { padding: 12px; border: 1px solid #E5E5E5; border-radius: 16px; color: #0A0A0A; font-weight: 500; text-align: center; font-size: 14px; line-height: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #FFFFFF; overflow: hidden">
+
+  <!-- navbar, scrolled state -->
+  <div style="padding: 12px 0; background: #FFFFFF; border-bottom: 1px solid #E5E5E5; box-shadow: 0 1px 2px 0 rgba(10,10,10,0.05)">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M14.21 5.54 L6.04 10.25 L6.04 21.75 L16 27.5 L25.96 21.75 L25.96 10.25" stroke="#009DFF" stroke-width="3"></path>
+          <path d="M25.96 10.25 L19.78 6.69" stroke="#7AC92C" stroke-width="3"></path>
+        </svg>
+        <span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 0.16em; color: #0A0A0A">ENERSOL</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 32px">
+        <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 14px; line-height: 20px; font-weight: 500; color: #0A0A0A; position: relative">
+          Products
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+          <span style="position: absolute; left: 0; right: 18px; bottom: -6px; height: 2px; border-radius: 9999px; background: #009DFF"></span>
+        </span>
+        <span style="font-size: 14px; line-height: 20px; font-weight: 500; color: #737373">Calculator</span>
+        <span style="font-size: 14px; line-height: 20px; font-weight: 500; color: #737373">Mobile App</span>
+        <span style="font-size: 14px; line-height: 20px; font-weight: 500; color: #737373">Dealer</span>
+        <span style="font-size: 14px; line-height: 20px; font-weight: 500; color: #737373">Contact</span>
+        <span style="display: inline-flex; align-items: center; padding: 8px 20px; border-radius: 16px; background: #0A0A0A; color: #FFFFFF; font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.025em">Get Quote</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 16px; background: #7AC92C; color: #171717; font-size: 14px; line-height: 20px; font-weight: 500">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#171717" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+          WhatsApp
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-top: 128px; padding-bottom: 96px">
+
+    <!-- breadcrumb -->
+    <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: #737373; margin-bottom: 24px">
+      <span>Products</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A3A3A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+      <span style="color: #0A0A0A; font-weight: 500">{{activeLabel}}</span>
+    </div>
+
+    <!-- FAMILY TABS — the new top level -->
+    <div style="display: flex; align-items: stretch; gap: 32px; border-bottom: 1px solid #E5E5E5; margin-bottom: 48px">
+      <div onClick="{{fBat.pick}}" style="{{fBat.tabStyle}}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{fBat.iconColor}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="10" x="2" y="7" rx="2" ry="2"></rect><line x1="22" x2="22" y1="11" y2="13"></line></svg>
+        <span style="{{fBat.labelStyle}}">LiFePO4 Batteries</span>
+      </div>
+      <div onClick="{{fBike.pick}}" style="{{fBike.tabStyle}}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{fBike.iconColor}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18.5" cy="17.5" r="3.5"></circle><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="15" cy="5" r="1"></circle><path d="M12 17.5V14l-3-3 4-3 2 3h2"></path></svg>
+        <span style="{{fBike.labelStyle}}">Electric Bikes</span>
+      </div>
+      <div onClick="{{fSol.pick}}" style="{{fSol.tabStyle}}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{fSol.iconColor}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        <span style="{{fSol.labelStyle}}">Solar</span>
+        <span style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #737373; background: #F5F5F5; padding: 3px 7px; border-radius: 8px">Soon</span>
+      </div>
+      <div onClick="{{fInv.pick}}" style="{{fInv.tabStyle}}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{fInv.iconColor}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span style="{{fInv.labelStyle}}">Inverters</span>
+        <span style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #737373; background: #F5F5F5; padding: 3px 7px; border-radius: 8px">Soon</span>
+      </div>
+    </div>
+
+    <!-- family header + view toggle -->
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 48px">
+      <div style="max-width: 768px">
+        <h1 style="font-size: 48px; line-height: 48px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A; margin-bottom: 16px">{{activeLabel}}</h1>
+        <p style="font-size: 18px; line-height: 28px; color: #737373; text-wrap: pretty">{{activeLead}}</p>
+      </div>
+      <div style="display: flex; background: #F5F5F5; padding: 4px; border-radius: 16px; border: 1px solid #E5E5E5; flex-shrink: 0">
+        <span onClick="{{pickGrid}}" style="{{gridBtnStyle}}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{gridIconColor}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>
+        </span>
+        <span onClick="{{pickList}}" style="{{listBtnStyle}}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{listIconColor}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"></path><path d="M8 12h13"></path><path d="M8 18h13"></path><path d="M3 6h.01"></path><path d="M3 12h.01"></path><path d="M3 18h.01"></path></svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- search + second-level type pills -->
+    <sc-if value="{{hasTypes}}" hint-placeholder-val="{{true}}">
+      <div style="display: flex; gap: 24px; margin-bottom: 48px">
+        <div style="flex-grow: 1; position: relative; display: flex; align-items: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 16px"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <div style="width: 100%; background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 16px; padding: 12px 24px 12px 48px; box-sizing: border-box; font-size: 16px; line-height: 24px; color: #737373">{{searchPlaceholder}}</div>
+        </div>
+        <div style="display: flex; gap: 8px; flex-shrink: 0">
+          <sc-for list="{{types}}" as="t" hint-placeholder-count="4">
+            <div onClick="{{t.pick}}" style="{{t.pillStyle}}">{{t.label}}</div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- BATTERY GRID -->
+    <sc-if value="{{showBatteries}}" hint-placeholder-val="{{true}}">
+      <div class="grid3">
+        <sc-if value="{{b1}}" hint-placeholder-val="{{true}}">
+          <div class="card">
+            <div class="well">
+              <img src="small.webp" alt="Enersol 12V 15Ah" style="width: 100%; height: 100%; object-fit: contain">
+              <span class="badge">Portable</span>
+            </div>
+            <h3 class="cardTitle">Enersol 12V 15Ah</h3>
+            <p class="cardDesc">Compact and lightweight high-performance LiFePO4 battery for portable applications.</p>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px">
+              <div><div class="specLabel">Voltage</div><div class="specValue">12.8V</div></div>
+              <div><div class="specLabel">Capacity</div><div class="specValue">15Ah (192Wh)</div></div>
+            </div>
+            <div class="cardCta">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{b2}}" hint-placeholder-val="{{true}}">
+          <div class="card">
+            <div class="well">
+              <img src="medium.webp" alt="Enersol 12V 100Ah" style="width: 100%; height: 100%; object-fit: contain">
+              <span class="badge">Residential</span>
+            </div>
+            <h3 class="cardTitle">Enersol 12V 100Ah</h3>
+            <p class="cardDesc">The standard choice for home energy storage, providing reliable power for deep-cycle applications.</p>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px">
+              <div><div class="specLabel">Voltage</div><div class="specValue">12.8V</div></div>
+              <div><div class="specLabel">Capacity</div><div class="specValue">100Ah (1280Wh)</div></div>
+            </div>
+            <div class="cardCta">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{b3}}" hint-placeholder-val="{{true}}">
+          <div class="card">
+            <div class="well">
+              <img src="large.webp" alt="Enersol PowerGate 5.1kWh" style="width: 100%; height: 100%; object-fit: contain">
+              <span class="badge">Residential</span>
+            </div>
+            <h3 class="cardTitle">Enersol PowerGate 5.1kWh</h3>
+            <p class="cardDesc">Wall-mounted premium energy storage for modern homes and solar integration.</p>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px">
+              <div><div class="specLabel">Voltage</div><div class="specValue">51.2V</div></div>
+              <div><div class="specLabel">Capacity</div><div class="specValue">100Ah (5.12kWh)</div></div>
+            </div>
+            <div class="cardCta">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <!-- BIKE GRID — same card, different two specs -->
+    <sc-if value="{{showBikes}}" hint-placeholder-val="{{true}}">
+      <div class="grid3">
+        <sc-if value="{{k1}}" hint-placeholder-val="{{true}}">
+          <div class="card">
+            <div class="well">
+              <svg width="230" height="150" viewBox="0 0 100 65" fill="none" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Placeholder illustration of a city electric bike">
+                <circle cx="22" cy="46" r="14"></circle>
+                <circle cx="78" cy="46" r="14"></circle>
+                <path d="M22 46 L40 22 L58 46"></path>
+                <path d="M40 22 L64 22 L78 46"></path>
+                <path d="M58 46 L74 24"></path>
+                <path d="M68 18 L80 18"></path>
+                <path d="M36 16 L46 16"></path>
+                <rect x="46" y="28" width="18" height="12" rx="2"></rect>
+              </svg>
+              <span class="badge">City</span>
+              <span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: #A3A3A3">[Photo needed]</span>
+            </div>
+            <h3 class="cardTitle">Enersol [City model]</h3>
+            <p class="cardDesc">Built for the daily commute inside the city, on a removable pack you carry indoors to charge.</p>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px">
+              <div><div class="specLabel">Motor</div><div class="specValue">[250]W</div></div>
+              <div><div class="specLabel">Range</div><div class="specValue">[60] km</div></div>
+            </div>
+            <div class="cardCta">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{k2}}" hint-placeholder-val="{{true}}">
+          <div class="card">
+            <div class="well">
+              <svg width="230" height="150" viewBox="0 0 100 65" fill="none" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Placeholder illustration of a cargo electric bike">
+                <circle cx="20" cy="47" r="12"></circle>
+                <circle cx="80" cy="47" r="12"></circle>
+                <path d="M20 47 L44 24 L60 47"></path>
+                <path d="M44 24 L68 24 L80 47"></path>
+                <path d="M60 47 L76 26"></path>
+                <path d="M70 20 L82 20"></path>
+                <rect x="8" y="20" width="30" height="16" rx="2"></rect>
+                <path d="M14 36 L14 44"></path>
+                <rect x="50" y="30" width="16" height="11" rx="2"></rect>
+              </svg>
+              <span class="badge">Cargo</span>
+              <span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: #A3A3A3">[Photo needed]</span>
+            </div>
+            <h3 class="cardTitle">Enersol [Cargo model]</h3>
+            <p class="cardDesc">Front rack and reinforced frame for shop runs and last-mile delivery work.</p>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px">
+              <div><div class="specLabel">Motor</div><div class="specValue">[500]W</div></div>
+              <div><div class="specLabel">Range</div><div class="specValue">[45] km</div></div>
+            </div>
+            <div class="cardCta">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{k3}}" hint-placeholder-val="{{true}}">
+          <div class="card">
+            <div class="well">
+              <svg width="230" height="150" viewBox="0 0 100 65" fill="none" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Placeholder illustration of an off-road electric bike">
+                <circle cx="22" cy="44" r="16"></circle>
+                <circle cx="78" cy="44" r="16"></circle>
+                <path d="M22 44 L40 20 L58 44"></path>
+                <path d="M40 20 L64 20 L78 44"></path>
+                <path d="M58 44 L74 22"></path>
+                <path d="M68 14 L82 14"></path>
+                <path d="M34 12 L46 12"></path>
+                <rect x="45" y="26" width="19" height="12" rx="2"></rect>
+                <path d="M8 44 L12 44 M88 44 L92 44"></path>
+              </svg>
+              <span class="badge">Off-road</span>
+              <span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: #A3A3A3">[Photo needed]</span>
+            </div>
+            <h3 class="cardTitle">Enersol [Off-road model]</h3>
+            <p class="cardDesc">Fat tyres and long-travel suspension for broken roads and unpaved tracks.</p>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px">
+              <div><div class="specLabel">Motor</div><div class="specValue">[750]W</div></div>
+              <div><div class="specLabel">Range</div><div class="specValue">[70] km</div></div>
+            </div>
+            <div class="cardCta">View Details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <!-- EMPTY STATE — reachable via Commercial, which has no products yet -->
+    <sc-if value="{{showEmpty}}" hint-placeholder-val="{{true}}">
+      <div style="text-align: center; padding: 96px 0">
+        <h3 style="font-size: 20px; line-height: 28px; color: #0A0A0A; margin-bottom: 8px">No products found</h3>
+        <p style="font-size: 16px; line-height: 24px; color: #737373; margin-bottom: 24px">Nothing in {{activeLabel}} matches that filter yet.</p>
+        <span onClick="{{clearType}}" style="display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border: 1px solid rgba(10,10,10,0.3); border-radius: 16px; color: #0A0A0A; font-weight: 500; font-size: 14px; line-height: 20px; cursor: pointer">Clear filters</span>
+      </div>
+    </sc-if>
+
+    <!-- COMING SOON PANEL — what a future family shows instead of an empty grid -->
+    <sc-if value="{{showSoon}}" hint-placeholder-val="{{true}}">
+      <div style="border-radius: 16px; border: 1px solid #E5E5E5; background: #FAFAFA; padding: 80px 64px; text-align: center">
+        <div style="width: 64px; height: 64px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E5E5; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px">
+          <sc-if value="{{soonIsSolar}}" hint-placeholder-val="{{true}}">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#009DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+          </sc-if>
+          <sc-if value="{{soonIsInverters}}" hint-placeholder-val="{{true}}">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#009DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </sc-if>
+        </div>
+        <h3 style="font-size: 36px; line-height: 40px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A; margin-bottom: 16px">{{activeLabel}} is on the way</h3>
+        <p style="font-size: 18px; line-height: 29px; color: #737373; max-width: 560px; margin: 0 auto 40px; text-wrap: pretty">{{soonBlurb}}</p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 16px">
+          <span style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 32px; background: #0A0A0A; color: #FFFFFF; font-weight: 500; border-radius: 16px; font-size: 14px; line-height: 20px; letter-spacing: 0.025em">
+            Tell me when it lands
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </span>
+          <span style="display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border: 1px solid rgba(10,10,10,0.3); border-radius: 16px; color: #0A0A0A; font-weight: 500; font-size: 14px; line-height: 20px">Browse batteries</span>
+        </div>
+      </div>
+    </sc-if>
+
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":1440,"height":1460}}'>
+const FAMILIES = [
+  { key: 'fBat', id: 'batteries', label: 'LiFePO4 Batteries', soon: false,
+    lead: 'Grade A cells, smart BMS and Bluetooth monitoring — from a 15Ah pack you can carry to a 5.1kWh wall-mount system.',
+    types: ['All', 'Residential', 'Commercial', 'Portable'], search: 'Search batteries…' },
+  { key: 'fBike', id: 'electric-bikes', label: 'Electric Bikes', soon: false,
+    lead: 'The same cells and the same warranty desk as our batteries, on two wheels. Removable packs you charge indoors.',
+    types: ['All', 'City', 'Cargo', 'Off-road'], search: 'Search bikes…' },
+  { key: 'fSol', id: 'solar', label: 'Solar', soon: true, types: [],
+    lead: 'Panels and mounting hardware, sized to pair with the batteries you already own.',
+    blurb: 'Panels and mounting hardware sized to the packs we already sell, so one supplier covers generation and storage. Leave us your number and we will tell you when pricing is set.' },
+  { key: 'fInv', id: 'inverters', label: 'Inverters', soon: true, types: [],
+    lead: 'Hybrid inverters matched to our packs, so the whole system carries one warranty.',
+    blurb: 'Hybrid inverters matched to our own packs, so generation, storage and conversion all sit under one warranty instead of three. Coming after solar.' }
+];
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { family: 'batteries', type: 'All', view: 'grid' };
+  }
+
+  renderVals() {
+    const activeId = this.state.family;
+    const activeType = this.state.type;
+    const active = FAMILIES.find((f) => f.id === activeId) || FAMILIES[0];
+
+    const vals = {};
+    FAMILIES.forEach((f) => {
+      const on = f.id === activeId;
+      vals[f.key] = {
+        iconColor: on ? '#009DFF' : '#A3A3A3',
+        tabStyle: 'display: flex; align-items: center; gap: 10px; padding: 0 2px 16px; cursor: pointer; border-bottom: 2px solid ' + (on ? '#009DFF' : 'transparent') + '; margin-bottom: -1px',
+        labelStyle: 'font-size: 15px; line-height: 22px; font-weight: 500; color: ' + (on ? '#0A0A0A' : '#737373'),
+        pick: () => this.setState({ family: f.id, type: 'All' })
+      };
+    });
+
+    vals.types = active.types.map((t) => {
+      const on = t === activeType;
+      return {
+        label: t,
+        pillStyle: 'padding: 12px 20px; border-radius: 16px; font-size: 14px; line-height: 20px; font-weight: 500; cursor: pointer; border: 1px solid ' +
+          (on ? '#009DFF' : '#E5E5E5') + '; background: ' + (on ? 'rgba(0,157,255,0.1)' : '#FFFFFF') + '; color: ' + (on ? '#009DFF' : '#737373'),
+        pick: () => this.setState({ type: t })
+      };
+    });
+
+    const isGrid = this.state.view === 'grid';
+    const segBtn = (on) => 'padding: 8px; border-radius: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; background: ' + (on ? '#0A0A0A' : 'transparent');
+    vals.gridBtnStyle = segBtn(isGrid);
+    vals.listBtnStyle = segBtn(!isGrid);
+    vals.gridIconColor = isGrid ? '#FFFFFF' : '#737373';
+    vals.listIconColor = isGrid ? '#737373' : '#FFFFFF';
+    vals.pickGrid = () => this.setState({ view: 'grid' });
+    vals.pickList = () => this.setState({ view: 'list' });
+    vals.clearType = () => this.setState({ type: 'All' });
+
+    const isBat = activeId === 'batteries';
+    const isBike = activeId === 'electric-bikes';
+    const b1 = isBat && (activeType === 'All' || activeType === 'Portable');
+    const b2 = isBat && (activeType === 'All' || activeType === 'Residential');
+    const b3 = isBat && (activeType === 'All' || activeType === 'Residential');
+    const k1 = isBike && (activeType === 'All' || activeType === 'City');
+    const k2 = isBike && (activeType === 'All' || activeType === 'Cargo');
+    const k3 = isBike && (activeType === 'All' || activeType === 'Off-road');
+    const anyShown = b1 || b2 || b3 || k1 || k2 || k3;
+
+    vals.hasTypes = active.types.length > 0;
+    vals.searchPlaceholder = active.search || '';
+    vals.activeLabel = active.label;
+    vals.activeLead = active.lead;
+    vals.showBatteries = isBat && anyShown;
+    vals.showBikes = isBike && anyShown;
+    vals.showEmpty = !active.soon && !anyShown;
+    vals.showSoon = !!active.soon;
+    vals.soonBlurb = active.blurb || '';
+    vals.soonIsSolar = activeId === 'solar';
+    vals.soonIsInverters = activeId === 'inverters';
+    vals.b1 = b1; vals.b2 = b2; vals.b3 = b3;
+    vals.k1 = k1; vals.k2 = k2; vals.k3 = k3;
+    return vals;
+  }
+}
+</script>
+</body>
+</html>

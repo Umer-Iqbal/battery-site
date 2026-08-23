@@ -41,7 +41,7 @@ export default function BecomeDealer() {
               Join the <span className="text-primary">Energy Revolution</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-12">
-              NexVolt is expanding its network across Pakistan. Partner with
+              Enersol is expanding its network across Pakistan. Partner with
               the region&apos;s most innovative LiFePO4 battery brand.
             </p>
 

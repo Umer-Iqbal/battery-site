@@ -15,6 +15,12 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        // index.css already applies these to body / h1-h6; the tokens exist so
+        // non-heading elements that must match a heading (the wordmark) can.
+        sans: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Outfit", "system-ui", "sans-serif"],
+      },
       colors: {
         dark: "#1a1a1a",
         border: "hsl(var(--border))",

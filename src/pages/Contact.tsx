@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, MessageCircle, Clock, Youtube, Instagram, Facebook } from 'lucide-react';
+import { BRAND, SOCIAL_PROFILES } from '@/lib/brand';
+import { WHATSAPP_URL } from '@/lib/contact';
+import { Mail, Phone, MapPin, MessageCircle, Clock, Youtube, Instagram, Facebook, Linkedin } from 'lucide-react';
 
-const SOCIAL_LINKS = [
-  { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-  { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
-];
+const SOCIAL_ICONS = { facebook: Facebook, instagram: Instagram, linkedin: Linkedin, youtube: Youtube };
+
+const SOCIAL_LINKS = SOCIAL_PROFILES.map((p) => ({ ...p, icon: SOCIAL_ICONS[p.id] }));
 
 export default function Contact() {
   return (
@@ -28,16 +28,16 @@ export default function Contact() {
           <ContactCard
             icon={<Phone className="text-primary" />}
             title="Call Us"
-            value="+92 (300) 123-4567"
+            value={BRAND.phoneDisplay}
             sub="Mon-Sat, 9am-6pm"
-            href="tel:+923001234567"
+            href={`tel:${BRAND.phoneE164}`}
           />
           <ContactCard
             icon={<Mail className="text-accent" />}
             title="Email Us"
-            value="info@nexvolt.pk"
+            value={BRAND.email}
             sub="Support & Sales"
-            href="mailto:info@nexvolt.pk"
+            href={`mailto:${BRAND.email}`}
           />
           <ContactCard
             icon={<MapPin className="text-primary" />}
@@ -58,7 +58,7 @@ export default function Contact() {
                 Get instant technical support or pricing via WhatsApp.
               </p>
               <a
-                href="https://wa.me/923001234567"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary !bg-accent !text-accent-foreground"
@@ -84,7 +84,7 @@ export default function Contact() {
 
           <div className="rounded-lg border border-border overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 min-h-[300px] lg:min-h-0">
             <iframe
-              title="NexVolt location"
+              title="Enersol location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108844.20173663717!2d74.19430588698884!3d31.48263523547372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc9026bf99e578171!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
               width="100%"
               height="100%"

@@ -4,7 +4,9 @@ import {
   buildOrganizationSchema,
   buildWebSiteSchema,
   getCanonicalUrl,
+  DEFAULT_IMAGE,
 } from '@/lib/seo-config';
+import { BRAND } from '@/lib/brand';
 
 interface SeoHeadProps {
   meta: SeoMeta;
@@ -34,7 +36,7 @@ function upsertLink(rel: string, href: string) {
 export default function SeoHead({ meta, schema }: SeoHeadProps) {
   useEffect(() => {
     const url = getCanonicalUrl(meta.path);
-    const image = meta.image ?? getCanonicalUrl('/vite.svg');
+    const image = meta.image ?? DEFAULT_IMAGE;
 
     document.title = meta.title;
     upsertMeta('description', meta.description);
@@ -46,7 +48,7 @@ export default function SeoHead({ meta, schema }: SeoHeadProps) {
     upsertMeta('og:type', meta.type ?? 'website', 'property');
     upsertMeta('og:url', url, 'property');
     upsertMeta('og:image', image, 'property');
-    upsertMeta('og:site_name', 'NexVolt', 'property');
+    upsertMeta('og:site_name', BRAND.name, 'property');
 
     upsertMeta('twitter:card', 'summary_large_image');
     upsertMeta('twitter:title', meta.title);
@@ -57,7 +59,7 @@ export default function SeoHead({ meta, schema }: SeoHeadProps) {
       ? Array.isArray(schema) ? schema : [schema]
       : [buildOrganizationSchema(), buildWebSiteSchema()];
 
-    const scriptId = 'nexvolt-json-ld';
+    const scriptId = 'site-json-ld';
     let script = document.getElementById(scriptId) as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement('script');

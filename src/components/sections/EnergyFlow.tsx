@@ -91,7 +91,7 @@ export default function EnergyFlow() {
             Intelligent Energy Flow
           </h2>
           <p className="text-muted-foreground text-lg">
-            Switch between modes to see how NexVolt optimizes your home energy ecosystem.
+            Switch between modes to see how Enersol optimizes your home energy ecosystem.
           </p>
         </div>
 
@@ -151,7 +151,7 @@ export default function EnergyFlow() {
                 />
                 <div className="flex justify-between items-start z-10">
                   <BatteryMedium size={28} className="text-primary" />
-                  <span className="text-lg font-semibold text-foreground">NexVolt</span>
+                  <span className="text-lg font-semibold text-foreground">Enersol</span>
                 </div>
                 <div className="z-10 text-center">
                   <motion.div

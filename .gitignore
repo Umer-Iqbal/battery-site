@@ -33,3 +33,6 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Generated design-canvas bundle (~2.4MB). Re-seed from design/canvas/ sources.
+design/**/enersol-brand-and-site.html
