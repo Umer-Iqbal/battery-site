@@ -5,6 +5,7 @@ import {
   buildWebSiteSchema,
   getCanonicalUrl,
   DEFAULT_IMAGE,
+  absoluteImage,
 } from '@/lib/seo-config';
 import { BRAND } from '@/lib/brand';
 
@@ -36,7 +37,8 @@ function upsertLink(rel: string, href: string) {
 export default function SeoHead({ meta, schema }: SeoHeadProps) {
   useEffect(() => {
     const url = getCanonicalUrl(meta.path);
-    const image = meta.image ?? DEFAULT_IMAGE;
+    // Must be absolute: social crawlers reject relative og:image paths.
+    const image = absoluteImage(meta.image ?? DEFAULT_IMAGE);
 
     document.title = meta.title;
     upsertMeta('description', meta.description);
@@ -48,12 +50,16 @@ export default function SeoHead({ meta, schema }: SeoHeadProps) {
     upsertMeta('og:type', meta.type ?? 'website', 'property');
     upsertMeta('og:url', url, 'property');
     upsertMeta('og:image', image, 'property');
+    upsertMeta('og:image:secure_url', image, 'property');
+    upsertMeta('og:image:alt', meta.title, 'property');
     upsertMeta('og:site_name', BRAND.name, 'property');
+    upsertMeta('og:locale', 'en_US', 'property');
 
     upsertMeta('twitter:card', 'summary_large_image');
     upsertMeta('twitter:title', meta.title);
     upsertMeta('twitter:description', meta.description);
     upsertMeta('twitter:image', image);
+    upsertMeta('twitter:image:alt', meta.title);
 
     const schemas = schema
       ? Array.isArray(schema) ? schema : [schema]

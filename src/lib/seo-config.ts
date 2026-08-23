@@ -76,8 +76,18 @@ export function getCanonicalUrl(path: string) {
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
-function absoluteImage(image: string) {
+export function absoluteImage(image: string) {
   return image.startsWith('http') ? image : `${SITE_URL}${image.startsWith('/') ? image : `/${image}`}`;
+}
+
+/**
+ * Social crawlers (Slack, WhatsApp, Facebook, LinkedIn) only render raster
+ * images, so an SVG product shot yields an imageless card. Fall back to the
+ * brand OG card in that case rather than shipping a preview that shows nothing.
+ */
+export function shareImage(image?: string) {
+  if (!image || !/\.(png|jpe?g|webp)$/i.test(image)) return DEFAULT_IMAGE;
+  return absoluteImage(image);
 }
 
 export function buildOrganizationSchema() {
@@ -114,7 +124,7 @@ export function buildProductSeo(product: Product): SeoMeta {
     description: product.description,
     path: productPath(product),
     type: 'product',
-    image: product.image,
+    image: shareImage(product.image),
   };
 }
 
