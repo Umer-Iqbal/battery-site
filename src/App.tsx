@@ -8,11 +8,13 @@ import SeoHead from './components/SeoHead';
 import SkipLink from './components/ui/SkipLink';
 import ScrollToTop from './components/ui/ScrollToTop';
 import FloatingWhatsApp from './components/ui/FloatingWhatsApp';
-import { routeSeo, defaultSeo } from './lib/seo-config';
+import { resolveRouteSeo } from './lib/seo-config';
 
 const Home = lazy(() => import('./pages/Home'));
-const Products = lazy(() => import('./pages/Products'));
+const ProductsRedirect = lazy(() => import('./pages/ProductsRedirect'));
+const ProductFamily = lazy(() => import('./pages/ProductFamily'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 const EnergyCalculator = lazy(() => import('./pages/EnergyCalculator'));
 const MobileApp = lazy(() => import('./pages/MobileApp'));
 const BecomeDealer = lazy(() => import('./pages/BecomeDealer'));
@@ -28,13 +30,11 @@ function PageLoader() {
 
 function RouteSeo() {
   const { pathname } = useLocation();
-  if (pathname.startsWith('/products/') && pathname !== '/products') return null;
-
-  const meta = routeSeo[pathname] ?? {
-    ...defaultSeo,
-    path: pathname,
-  };
-  return <SeoHead meta={meta} />;
+  // null only on product detail pages, which own their own tags. The old
+  // `startsWith('/products/')` bail-out would have silently killed SEO on
+  // every family route.
+  const meta = resolveRouteSeo(pathname);
+  return meta ? <SeoHead meta={meta} /> : null;
 }
 
 function AnimatedRoutes() {
@@ -46,12 +46,17 @@ function AnimatedRoutes() {
       <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:slug" element={<ProductDetail />} />
+        <Route path="/products" element={<ProductsRedirect />} />
+        {/* One segment after /products is a family; two is a product. A flat
+            /products/:slug cannot be told apart from /products/:family, so
+            legacy flat links are resolved inside ProductFamily. */}
+        <Route path="/products/:family" element={<ProductFamily />} />
+        <Route path="/products/:family/:slug" element={<ProductDetail />} />
         <Route path="/calculator" element={<EnergyCalculator />} />
         <Route path="/mobile-app" element={<MobileApp />} />
         <Route path="/become-dealer" element={<BecomeDealer />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </AnimatePresence>
     </>

@@ -56,7 +56,7 @@ export default function DayNightCycle() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-foreground">24/7 Energy Autonomy</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Drag the slider to see how NexVolt manages your home&apos;s energy cycle from dawn till dusk.
+            Drag the slider to see how Enersol manages your home&apos;s energy cycle from dawn till dusk.
           </p>
         </div>
 

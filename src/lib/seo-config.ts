@@ -1,3 +1,7 @@
+import { BRAND } from '@/lib/brand';
+import { PRODUCT_FAMILIES, productPath, FAMILY_BY_ID } from '@/data/families';
+import { cardSpecs, type Product } from '@/data/products';
+
 export interface SeoMeta {
   title: string;
   description: string;
@@ -6,63 +10,83 @@ export interface SeoMeta {
   image?: string;
 }
 
-const SITE_URL = 'https://nexvolt.pk';
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
+const SITE_URL = BRAND.siteUrl;
+export const DEFAULT_IMAGE = `${SITE_URL}/brand/og-image.png`;
 
 export const defaultSeo: SeoMeta = {
-  title: 'NexVolt | Premium LiFePO4 Energy Solutions',
-  description:
-    "Premium LiFePO4 batteries engineered for Pakistan's energy future. Reliable, innovative, and high-tech energy storage solutions.",
+  title: `${BRAND.name} | ${BRAND.tagline}`,
+  description: BRAND.description,
   path: '/',
   type: 'website',
   image: DEFAULT_IMAGE,
 };
 
-export const routeSeo: Record<string, SeoMeta> = {
+const STATIC_ROUTES: Record<string, SeoMeta> = {
   '/': defaultSeo,
   '/products': {
-    title: 'Products | NexVolt LiFePO4 Batteries',
+    title: `Products | ${BRAND.name}`,
     description:
-      'Browse NexVolt residential, commercial, and portable LiFePO4 battery systems. 6000+ cycles, 10-year warranty.',
+      'LiFePO4 batteries and electric bikes, with solar and inverters coming. Browse the full Enersol range.',
     path: '/products',
   },
   '/calculator': {
-    title: 'Energy Calculator | NexVolt',
-    description:
-      'Calculate your backup runtime, required battery capacity, and ROI with the NexVolt energy calculator.',
+    title: `Energy Calculator | ${BRAND.name}`,
+    description: `Calculate your backup runtime, required battery capacity, and ROI with the ${BRAND.name} energy calculator.`,
     path: '/calculator',
   },
   '/mobile-app': {
-    title: 'Mobile App | NexVolt Smart Monitoring',
-    description:
-      'Monitor live power flow, cell health, and energy statistics from anywhere with the NexVolt mobile app.',
+    title: `Mobile App | ${BRAND.name} Smart Monitoring`,
+    description: `Monitor live power flow, cell health, and energy statistics from anywhere with the ${BRAND.name} app.`,
     path: '/mobile-app',
   },
   '/become-dealer': {
-    title: 'Become a Dealer | NexVolt',
+    title: `Become a Dealer | ${BRAND.name}`,
     description:
-      "Join Pakistan's fastest growing energy storage distribution network. Premium margins and full dealer support.",
+      "Two product lines from one supplier, with a third and fourth coming. Territory protection and dealer pricing.",
     path: '/become-dealer',
   },
   '/contact': {
-    title: 'Contact Us | NexVolt',
-    description:
-      'Get a quote or speak with the NexVolt team about LiFePO4 energy storage for your home or business.',
+    title: `Contact Us | ${BRAND.name}`,
+    description: `Get a quote or speak with the ${BRAND.name} team about batteries or electric bikes.`,
     path: '/contact',
   },
 };
 
+/** Generated from the family config, so adding a family needs no edit here. */
+const FAMILY_ROUTES: Record<string, SeoMeta> = Object.fromEntries(
+  PRODUCT_FAMILIES.map((f) => [
+    f.path,
+    { title: f.seoTitle, description: f.seoDescription, path: f.path },
+  ])
+);
+
+export const routeSeo: Record<string, SeoMeta> = { ...STATIC_ROUTES, ...FAMILY_ROUTES };
+
+const DETAIL_PATH = /^\/products\/[^/]+\/[^/]+\/?$/;
+
+/** null means the page supplies its own SeoHead (product detail). */
+export function resolveRouteSeo(pathname: string): SeoMeta | null {
+  const hit = routeSeo[pathname] ?? routeSeo[pathname.replace(/\/$/, '')];
+  if (hit) return hit;
+  if (DETAIL_PATH.test(pathname)) return null;
+  return { ...defaultSeo, path: pathname };
+}
+
 export function getCanonicalUrl(path: string) {
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+}
+
+function absoluteImage(image: string) {
+  return image.startsWith('http') ? image : `${SITE_URL}${image.startsWith('/') ? image : `/${image}`}`;
 }
 
 export function buildOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'NexVolt',
+    name: BRAND.name,
     url: SITE_URL,
-    logo: `${SITE_URL}/vite.svg`,
+    logo: `${SITE_URL}/brand/logo-mark.svg`,
     description: defaultSeo.description,
     areaServed: 'PK',
     sameAs: [],
@@ -73,7 +97,7 @@ export function buildWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'NexVolt',
+    name: BRAND.name,
     url: SITE_URL,
     description: defaultSeo.description,
     potentialAction: {
@@ -84,25 +108,47 @@ export function buildWebSiteSchema() {
   };
 }
 
-export function buildProductSchema(product: {
-  name: string;
-  description: string;
-  slug: string;
-  voltage: string;
-  capacity: string;
-  image: string;
-}) {
+export function buildProductSeo(product: Product): SeoMeta {
+  return {
+    title: `${product.name} | ${BRAND.name}`,
+    description: product.description,
+    path: productPath(product),
+    type: 'product',
+    image: product.image,
+  };
+}
+
+export function buildProductSchema(product: Product) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
     description: product.description,
-    image: product.image.startsWith('http') ? product.image : `${SITE_URL}${product.image}`,
-    brand: { '@type': 'Brand', name: 'NexVolt' },
-    url: getCanonicalUrl(`/products/${product.slug}`),
-    additionalProperty: [
-      { '@type': 'PropertyValue', name: 'Voltage', value: product.voltage },
-      { '@type': 'PropertyValue', name: 'Capacity', value: product.capacity },
+    image: absoluteImage(product.image),
+    brand: { '@type': 'Brand', name: BRAND.name },
+    url: getCanonicalUrl(productPath(product)),
+    additionalProperty: cardSpecs(product).map((chip) => ({
+      '@type': 'PropertyValue',
+      name: chip.label,
+      value: chip.value,
+    })),
+  };
+}
+
+export function buildBreadcrumbSchema(product: Product) {
+  const family = FAMILY_BY_ID[product.family];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Products', item: getCanonicalUrl('/products') },
+      { '@type': 'ListItem', position: 2, name: family.label, item: getCanonicalUrl(family.path) },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: product.name,
+        item: getCanonicalUrl(productPath(product)),
+      },
     ],
   };
 }

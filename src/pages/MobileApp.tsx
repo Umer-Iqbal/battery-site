@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import LazyImage from '@/components/ui/LazyImage';
+import { asset } from '@/utils/asset';
 import {
   Smartphone,
   Shield,
@@ -34,7 +35,7 @@ export default function MobileApp() {
           <div className="lg:w-1/2">
             <div className="flex items-center gap-2 mb-6 text-primary">
               <Smartphone size={24} />
-              <span className="font-medium tracking-widest uppercase text-xs">The NexVolt Ecosystem</span>
+              <span className="font-medium tracking-widest uppercase text-xs">The Enersol Ecosystem</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-semibold tracking-tight mb-8 leading-tight text-foreground">
               Energy Control <br />
@@ -42,7 +43,7 @@ export default function MobileApp() {
             </h1>
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
               Experience total transparency. Our custom-built mobile app communicates
-              directly with the NexVolt Cloud, giving you insights previously only
+              directly with the Enersol Cloud, giving you insights previously only
               available to factory technicians.
             </p>
             <div className="flex flex-wrap gap-6 mb-16">
@@ -71,7 +72,7 @@ export default function MobileApp() {
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               className="relative z-10"
             >
-              <LazyImage src="/images/nexvolt_mobile_app_mockup_1780678692443.png" alt="App Mockup" className="w-full max-w-lg mx-auto" />
+              <LazyImage src={asset('images/mobile-app-mockup.svg')} alt="App Mockup" className="w-full max-w-lg mx-auto" />
             </motion.div>
 
             <div className="absolute top-1/4 -right-10 border border-border bg-surface-elevated p-4 rounded-lg z-20">

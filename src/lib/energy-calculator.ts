@@ -1,10 +1,5 @@
-import { products } from '@/data/products';
-
-const PRODUCT_ENERGY_KWH: Record<string, number> = {
-  'nv-1215': 0.192,
-  'nv-12100': 1.28,
-  'nv-48100': 5.12,
-};
+import { batteryProducts } from '@/data/products';
+import type { ProductFamilyId } from '@/data/families';
 
 const SAFETY_FACTOR = 1.25;
 const DOD_USABLE = 0.85;
@@ -28,6 +23,8 @@ export interface ProductRecommendation {
   productId: string;
   productName: string;
   slug: string;
+  /** Always 'batteries' — the type makes recommending a bike impossible. */
+  family: ProductFamilyId;
   unitEnergyKwh: number;
   unitsNeeded: number;
   totalCapacityKwh: number;
@@ -51,36 +48,42 @@ export function calculateDailyKwhFromAppliances(appliances: ApplianceInput[]): n
   return Math.round((wh / 1000) * 10) / 10;
 }
 
+/**
+ * Smallest battery that covers the requirement, else the largest one stacked.
+ *
+ * Sources from `batteryProducts`, which is typed BatteryProduct[] — so
+ * `energyKwh` is non-optional (no `?? 1` fallback guessing) and an electric
+ * bike cannot be recommended as energy storage.
+ */
 export function recommendProduct(nominalKwh: number): ProductRecommendation {
-  const sorted = products
-    .map((p) => ({
-      product: p,
-      energy: PRODUCT_ENERGY_KWH[p.id] ?? 1,
-    }))
-    .sort((a, b) => a.energy - b.energy);
+  const sorted = [...batteryProducts].sort((a, b) => a.energyKwh - b.energyKwh);
+  if (sorted.length === 0) {
+    throw new Error('recommendProduct: no battery products in the catalogue');
+  }
 
-  for (const { product, energy } of sorted) {
-    if (energy >= nominalKwh) {
-      return {
-        productId: product.id,
-        productName: product.name,
-        slug: product.slug,
-        unitEnergyKwh: energy,
-        unitsNeeded: 1,
-        totalCapacityKwh: energy,
-      };
-    }
+  const exact = sorted.find((p) => p.energyKwh >= nominalKwh);
+  if (exact) {
+    return {
+      productId: exact.id,
+      productName: exact.name,
+      slug: exact.slug,
+      family: exact.family,
+      unitEnergyKwh: exact.energyKwh,
+      unitsNeeded: 1,
+      totalCapacityKwh: exact.energyKwh,
+    };
   }
 
   const largest = sorted[sorted.length - 1];
-  const unitsNeeded = Math.ceil(nominalKwh / largest.energy);
+  const unitsNeeded = Math.ceil(nominalKwh / largest.energyKwh);
   return {
-    productId: largest.product.id,
-    productName: largest.product.name,
-    slug: largest.product.slug,
-    unitEnergyKwh: largest.energy,
+    productId: largest.id,
+    productName: largest.name,
+    slug: largest.slug,
+    family: largest.family,
+    unitEnergyKwh: largest.energyKwh,
     unitsNeeded,
-    totalCapacityKwh: largest.energy * unitsNeeded,
+    totalCapacityKwh: largest.energyKwh * unitsNeeded,
   };
 }
 

@@ -4,13 +4,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/utils/cn';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import Logo from '@/components/brand/Logo';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
+// Dealer is intentionally absent: /become-dealer still exists and is linked
+// from the footer, it is just not in the primary nav for now.
 const navLinks = [
+  { name: 'Home', href: '/' },
   { name: 'Products', href: '/products' },
   { name: 'Calculator', href: '/calculator' },
   { name: 'Mobile App', href: '/mobile-app' },
-  { name: 'Dealer', href: '/become-dealer' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -44,14 +47,7 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-black text-sm">NV</span>
-          </div>
-          <span className="text-lg font-semibold tracking-tight text-foreground">
-            NexVolt
-          </span>
-        </Link>
+        <Logo />
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8">

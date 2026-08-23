@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 
+// One cross-family stat plus one per line — three battery claims here made the
+// whole page read as a battery shop. [bracketed] figures are still placeholders.
 const specs = [
-  { value: '6000+', label: 'Cycles' },
-  { value: '10 Years', label: 'Warranty' },
-  { value: '99%', label: 'Efficiency' },
+  { value: '2', label: 'Product lines, one supplier' },
+  { value: '6,000+', label: 'Battery cycles' },
+  { value: '[60] km', label: 'Bike range, eco mode' },
 ];
 
 export default function SpecStrip() {

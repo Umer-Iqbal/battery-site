@@ -1,8 +1,8 @@
-# NexVolt — Premium LiFePO4 Battery Website
+# Enersol — LiFePO4 Batteries & Electric Bikes
 
 > A production-ready premium energy technology website built to compete with Tesla Powerwall, EcoFlow, and Bluetti.
 
-![NexVolt Hero](public/images/nexvolt_battery_3d_render_1780678669823.png)
+![Enersol hero](public/images/hero-battery.png)
 
 ---
 

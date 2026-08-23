@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Outfit', system-ui, sans-serif; margin: 0; }
+    p { margin: 0; }
+    a { color: #009DFF; text-decoration: none; }
+    a:hover { color: #0081D1; }
+  </style>
+</helmet>
+
+<div style="width: 880px; height: 820px; background: #FFFFFF; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 36px">
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <p style="font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #009DFF">Option B</p>
+    <h2 style="font-size: 34px; line-height: 38px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A">Solar Arc</h2>
+    <p style="font-size: 15px; line-height: 24px; color: #737373; max-width: 620px; text-wrap: pretty">One arc over one line, broken once — and the break sits <strong style="color: #0A0A0A; font-weight: 500">off-centre</strong>, which is the detail that makes it yours rather than generic. Sun over a horizon, a charge curve, a spark gap.</p>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 48px; border-top: 1px solid #E5E5E5; padding-top: 36px">
+    <svg width="228" height="148" viewBox="0 0 40 26" fill="none" role="img" aria-label="Enersol mark, option B">
+      <path d="M3 22 A17 17 0 0 1 21 5.03" stroke="{{mark}}" stroke-width="3.5"></path>
+      <path d="M27 6.51 A17 17 0 0 1 37 22" stroke="{{mark}}" stroke-width="3.5"></path>
+      <path d="M2 22 H38" stroke="{{accent}}" stroke-width="3.5"></path>
+    </svg>
+    <div style="display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">Why this one</p>
+        <p style="font-size: 14px; line-height: 22px; color: #0A0A0A; text-wrap: pretty">The only one of the three that reads across batteries, bikes <em>and</em> solar without favouring any of them. Two shapes, no gradient, no letter — the restraint is the point.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">The tradeoff</p>
+        <p style="font-size: 14px; line-height: 22px; color: #737373; text-wrap: pretty">No letter means slower recognition — the wordmark carries the name for the first year. And it is wide, so a square favicon needs the boxed variant below.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #E5E5E5; padding-top: 28px">
+    <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">Lockup</p>
+    <div style="display: flex; align-items: center; gap: 16px">
+      <svg width="55" height="36" viewBox="0 0 40 26" fill="none" aria-hidden="true">
+        <path d="M3 22 A17 17 0 0 1 21 5.03" stroke="{{mark}}" stroke-width="3.5"></path>
+        <path d="M27 6.51 A17 17 0 0 1 37 22" stroke="{{mark}}" stroke-width="3.5"></path>
+        <path d="M2 22 H38" stroke="{{accent}}" stroke-width="3.5"></path>
+      </svg>
+      <span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 27px; font-weight: 500; letter-spacing: 0.2em; color: #0A0A0A">ENERSOL</span>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #E5E5E5; padding-top: 28px">
+    <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">Holds up small</p>
+    <div style="display: flex; align-items: flex-end; gap: 36px">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <svg width="49" height="32" viewBox="0 0 40 26" fill="none" aria-hidden="true">
+          <path d="M3 22 A17 17 0 0 1 21 5.03" stroke="{{mark}}" stroke-width="3.5"></path>
+          <path d="M27 6.51 A17 17 0 0 1 37 22" stroke="{{mark}}" stroke-width="3.5"></path>
+          <path d="M2 22 H38" stroke="{{accent}}" stroke-width="3.5"></path>
+        </svg>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">32px tall</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <svg width="37" height="24" viewBox="0 0 40 26" fill="none" aria-hidden="true">
+          <path d="M3 22 A17 17 0 0 1 21 5.03" stroke="{{mark}}" stroke-width="3.5"></path>
+          <path d="M27 6.51 A17 17 0 0 1 37 22" stroke="{{mark}}" stroke-width="3.5"></path>
+          <path d="M2 22 H38" stroke="{{accent}}" stroke-width="3.5"></path>
+        </svg>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">24px</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <svg width="25" height="16" viewBox="0 0 40 26" fill="none" aria-hidden="true">
+          <path d="M3 22 A17 17 0 0 1 21 5.03" stroke="{{mark}}" stroke-width="3.5"></path>
+          <path d="M27 6.51 A17 17 0 0 1 37 22" stroke="{{mark}}" stroke-width="3.5"></path>
+          <path d="M2 22 H38" stroke="{{accent}}" stroke-width="3.5"></path>
+        </svg>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">16px</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <div style="width: 44px; height: 44px; border-radius: 16px; background: #0A0A0A; display: flex; align-items: center; justify-content: center">
+          <svg width="31" height="20" viewBox="0 0 40 26" fill="none" aria-hidden="true">
+            <path d="M3 22 A17 17 0 0 1 21 5.03" stroke="#FFFFFF" stroke-width="3.5"></path>
+            <path d="M27 6.51 A17 17 0 0 1 37 22" stroke="#FFFFFF" stroke-width="3.5"></path>
+            <path d="M2 22 H38" stroke="{{accent}}" stroke-width="3.5"></path>
+          </svg>
+        </div>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">Boxed · favicon</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <svg width="55" height="36" viewBox="0 0 40 26" fill="none" aria-hidden="true">
+          <path d="M3 22 A17 17 0 0 1 21 5.03" stroke="#0A0A0A" stroke-width="3.5"></path>
+          <path d="M27 6.51 A17 17 0 0 1 37 22" stroke="#0A0A0A" stroke-width="3.5"></path>
+          <path d="M2 22 H38" stroke="#0A0A0A" stroke-width="3.5"></path>
+        </svg>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">One colour</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #E5E5E5; padding-top: 28px">
+    <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">In the navbar</p>
+    <div style="height: 64px; border: 1px solid #E5E5E5; border-radius: 16px; background: #FFFFFF; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; overflow: hidden">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <svg width="43" height="28" viewBox="0 0 40 26" fill="none" aria-hidden="true">
+          <path d="M3 22 A17 17 0 0 1 21 5.03" stroke="{{mark}}" stroke-width="3.5"></path>
+          <path d="M27 6.51 A17 17 0 0 1 37 22" stroke="{{mark}}" stroke-width="3.5"></path>
+          <path d="M2 22 H38" stroke="{{accent}}" stroke-width="3.5"></path>
+        </svg>
+        <span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 17px; font-weight: 500; letter-spacing: 0.16em; color: #0A0A0A">ENERSOL</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 28px">
+        <span style="font-size: 14px; font-weight: 500; color: #0A0A0A">Products</span>
+        <span style="font-size: 14px; font-weight: 500; color: #737373">Calculator</span>
+        <span style="font-size: 14px; font-weight: 500; color: #737373">Dealer</span>
+        <span style="display: inline-flex; align-items: center; padding: 8px 20px; border-radius: 16px; background: #0A0A0A; color: #FFFFFF; font-size: 12px; font-weight: 500; letter-spacing: 0.025em">Get Quote</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"markColor":{"editor":"color","default":"#009DFF","options":["#009DFF","#7AC92C","#0A0A0A"],"section":"Mark"},"$preview":{"width":880,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mark = this.props.markColor ?? '#009DFF';
+    const accent = mark === '#0A0A0A' ? '#0A0A0A' : '#7AC92C';
+    return { mark: mark, accent: accent };
+  }
+}
+</script>
+</body>
+</html>

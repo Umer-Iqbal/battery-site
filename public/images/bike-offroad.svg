@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="312" viewBox="0 0 100 78" fill="none"
+     stroke="#C4C4C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+     role="img" aria-label="Placeholder illustration of an off-road electric bike">
+  <!-- PLACEHOLDER ARTWORK. Replace with real product photography. -->
+  <circle cx="22" cy="44" r="16"/>
+  <circle cx="22" cy="44" r="5"/>
+  <circle cx="78" cy="44" r="16"/>
+  <circle cx="78" cy="44" r="5"/>
+  <path d="M22 44 L40 20 L58 44"/>
+  <path d="M40 20 L64 20 L78 44"/>
+  <path d="M58 44 L74 22"/>
+  <path d="M68 14 L82 14"/>
+  <path d="M34 12 L46 12"/>
+  <rect x="45" y="26" width="19" height="12" rx="2"/>
+  <path d="M6 44 L11 44"/>
+  <path d="M89 44 L94 44"/>
+  <text x="50" y="75" text-anchor="middle" font-family="Inter, system-ui, sans-serif"
+        font-size="5" letter-spacing="0.6" fill="#A3A3A3" stroke="none">PHOTO PENDING</text>
+</svg>

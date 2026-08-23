@@ -2,7 +2,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ['main', 'feature/improved-design-2']
+    branches: ['staging', 'feature/enersol-rebrand']
   workflow_dispatch:
 
 permissions:

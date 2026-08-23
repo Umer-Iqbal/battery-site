@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LazyImage from '../ui/LazyImage';
+import { asset } from '@/utils/asset';
 import WhatsAppButton from '../ui/WhatsAppButton';
 
 export default function Hero() {
@@ -10,8 +11,8 @@ export default function Hero() {
       {/* Full-bleed product image */}
       <div className="absolute inset-0">
         <LazyImage
-          src="/images/hero-battery.png"
-          alt="NexVolt LiFePO4 Battery System"
+          src={asset('images/hero-battery.png')}
+          alt="Enersol LiFePO4 battery system"
           className="w-full h-full object-cover object-center"
           fallbackClassName="w-full h-full min-h-screen"
           priority
@@ -28,7 +29,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl font-semibold tracking-tight text-foreground mb-6"
         >
-          Power Without Compromise
+          Built for Pakistan&apos;s power.<br />And its roads.
         </motion.h1>
 
         <motion.p
@@ -37,7 +38,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.15, ease: 'easeOut' }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Premium LiFePO4 batteries engineered for Pakistan&apos;s energy future.
+          LiFePO4 storage that rides out load-shedding, and electric bikes that take your fuel bill to zero.
         </motion.p>
 
         <motion.div

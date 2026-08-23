@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #FFFFFF; color: #0A0A0A; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Outfit', system-ui, sans-serif; margin: 0; }
+    p { margin: 0; }
+    a { color: #009DFF; text-decoration: none; }
+    a:hover { color: #0081D1; }
+    .wrap { padding: 0 24px; box-sizing: border-box; }
+    .card { border-radius: 16px; border: 1px solid #E5E5E5; background: #FFFFFF; box-sizing: border-box; padding: 24px; display: flex; flex-direction: column; }
+    .soonCard { border-radius: 16px; border: 1px solid #E5E5E5; background: #FAFAFA; box-sizing: border-box; padding: 20px; display: flex; flex-direction: column; }
+    .iconWell { width: 56px; height: 56px; border-radius: 16px; background: #F5F5F5; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .soonChip { align-self: flex-start; font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373; background: #F5F5F5; padding: 6px 10px; border-radius: 8px; }
+  </style>
+</helmet>
+
+<div style="width: 390px; background: #FFFFFF; overflow: hidden">
+
+  <!-- ============ HERO with navbar overlay ============ -->
+  <div style="position: relative; height: 780px; overflow: hidden">
+    <img src="hero-battery.webp" alt="Enersol LiFePO4 wall-mount battery" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% center">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to top, #FFFFFF 0%, rgba(255,255,255,0.88) 42%, rgba(255,255,255,0.3) 100%)"></div>
+    <div style="position: absolute; left: 0; right: 0; top: 0; height: 110px; background: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0))"></div>
+
+    <!-- navbar -->
+    <div style="position: absolute; left: 0; right: 0; top: 0; padding: 20px 0; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px)">
+      <div class="wrap" style="display: flex; align-items: center; justify-content: space-between">
+        <div style="display: flex; align-items: center; gap: 10px">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M14.21 5.54 L6.04 10.25 L6.04 21.75 L16 27.5 L25.96 21.75 L25.96 10.25" stroke="#009DFF" stroke-width="3"></path>
+          <path d="M25.96 10.25 L19.78 6.69" stroke="#7AC92C" stroke-width="3"></path>
+        </svg>
+          <span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0.16em; color: #0A0A0A">ENERSOL</span>
+        </div>
+        <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: flex-end">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- hero copy -->
+    <div style="position: absolute; left: 0; right: 0; bottom: 0">
+      <div class="wrap" style="padding-bottom: 56px; text-align: center">
+        <h1 style="font-size: 36px; line-height: 40px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A; margin-bottom: 20px">Built for Pakistan's power. And its roads.</h1>
+        <p style="font-size: 16px; line-height: 26px; color: #737373; margin-bottom: 32px; text-wrap: pretty">LiFePO4 storage that rides out load-shedding, and electric bikes that take your fuel bill to zero.</p>
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <span style="display: flex; align-items: center; justify-content: center; padding: 14px 32px; background: #0A0A0A; color: #FFFFFF; font-weight: 500; border-radius: 16px; font-size: 14px; line-height: 20px; letter-spacing: 0.025em; min-height: 48px; box-sizing: border-box">Explore Products</span>
+          <span style="padding: 12px 32px; border: 1px solid rgba(122,201,44,0.5); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 48px; box-sizing: border-box">
+            <span style="display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: 0.025em; color: #0A0A0A">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7AC92C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+              WhatsApp Us
+            </span>
+            <span style="font-size: 12px; line-height: 16px; color: #737373">[+92 300 000 0000]</span>
+          </span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center; padding-bottom: 24px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FAMILY BAND ============ -->
+  <div style="padding: 72px 0; background: #FFFFFF">
+    <div class="wrap">
+      <div style="margin-bottom: 40px">
+        <p style="font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #009DFF; margin-bottom: 14px">Four product lines</p>
+        <h2 style="font-size: 36px; line-height: 38px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A; margin-bottom: 14px">One name across the range</h2>
+        <p style="font-size: 16px; line-height: 26px; color: #737373; text-wrap: pretty">Batteries and bikes are shipping now. Solar and inverters are next.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+
+        <div class="card">
+          <div class="iconWell">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#009DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="10" x="2" y="7" rx="2" ry="2"></rect><line x1="22" x2="22" y1="11" y2="13"></line></svg>
+          </div>
+          <h3 style="font-size: 20px; line-height: 28px; font-weight: 600; color: #0A0A0A; margin-bottom: 8px">LiFePO4 Batteries</h3>
+          <p style="font-size: 14px; line-height: 22px; color: #737373; margin-bottom: 20px; text-wrap: pretty">From 12V portable packs up to 5.1kWh wall-mount systems. 6,000+ cycles, smart BMS.</p>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; font-weight: 500; color: #009DFF; min-height: 44px">
+            View batteries
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#009DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </span>
+        </div>
+
+        <div class="card">
+          <div class="iconWell">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#009DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18.5" cy="17.5" r="3.5"></circle><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="15" cy="5" r="1"></circle><path d="M12 17.5V14l-3-3 4-3 2 3h2"></path></svg>
+          </div>
+          <h3 style="font-size: 20px; line-height: 28px; font-weight: 600; color: #0A0A0A; margin-bottom: 8px">Electric Bikes</h3>
+          <p style="font-size: 14px; line-height: 22px; color: #737373; margin-bottom: 20px; text-wrap: pretty">City, cargo and off-road frames on the same cells. [60] km per charge.</p>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; font-weight: 500; color: #009DFF; min-height: 44px">
+            View bikes
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#009DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+          <div class="soonCard">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: #F5F5F5; display: flex; align-items: center; justify-content: center; margin-bottom: 16px">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A3A3A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+            </div>
+            <h3 style="font-size: 17px; line-height: 24px; font-weight: 600; color: #737373; margin-bottom: 12px">Solar</h3>
+            <span class="soonChip">Coming soon</span>
+          </div>
+          <div class="soonCard">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: #F5F5F5; display: flex; align-items: center; justify-content: center; margin-bottom: 16px">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A3A3A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <h3 style="font-size: 17px; line-height: 24px; font-weight: 600; color: #737373; margin-bottom: 12px">Inverters</h3>
+            <span class="soonChip">Coming soon</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SPEC STRIP, stacked ============ -->
+  <div style="border-top: 1px solid #E5E5E5; background: #FFFFFF">
+    <div class="wrap">
+      <div style="padding: 32px 0; text-align: center; border-bottom: 1px solid #E5E5E5">
+        <div style="font-family: 'Outfit', system-ui, sans-serif; font-size: 32px; line-height: 36px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A">6,000+</div>
+        <div style="font-size: 13px; line-height: 18px; color: #737373; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em">Battery cycles</div>
+      </div>
+      <div style="padding: 32px 0; text-align: center; border-bottom: 1px solid #E5E5E5">
+        <div style="font-family: 'Outfit', system-ui, sans-serif; font-size: 32px; line-height: 36px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A">[10] Years</div>
+        <div style="font-size: 13px; line-height: 18px; color: #737373; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em">Battery warranty</div>
+      </div>
+      <div style="padding: 32px 0; text-align: center">
+        <div style="font-family: 'Outfit', system-ui, sans-serif; font-size: 32px; line-height: 36px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A">[N] Cities</div>
+        <div style="font-size: 13px; line-height: 18px; color: #737373; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em">Service network</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BATTERY LINEUP, first card ============ -->
+  <div style="padding: 72px 0; background: #FFFFFF; border-top: 1px solid #E5E5E5">
+    <div class="wrap">
+      <p style="font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #009DFF; margin-bottom: 14px">LiFePO4 Batteries</p>
+      <h2 style="font-size: 36px; line-height: 38px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A; margin-bottom: 14px">The battery lineup</h2>
+      <p style="font-size: 16px; line-height: 26px; color: #737373; margin-bottom: 32px">From a 15Ah pack you can carry to a 5.1kWh wall-mount system.</p>
+      <div class="card">
+        <div style="aspect-ratio: 1 / 1; border-radius: 16px; background: #F5F5F5; margin-bottom: 20px; padding: 16px; box-sizing: border-box; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden">
+          <img src="medium.webp" alt="Enersol 12V 100Ah" style="width: 100%; height: 100%; object-fit: contain">
+          <span style="position: absolute; top: 12px; right: 12px; padding: 2px 8px; background: #009DFF; color: #FAFAFA; font-size: 10px; line-height: 16px; font-weight: 500; text-transform: uppercase; border-radius: 16px">Residential</span>
+        </div>
+        <h3 style="font-size: 18px; line-height: 26px; font-weight: 600; color: #0A0A0A; margin-bottom: 4px">Enersol 12V 100Ah</h3>
+        <p style="font-size: 14px; line-height: 20px; color: #737373; margin-bottom: 8px">12.8V · 100Ah (1280Wh)</p>
+        <p style="font-size: 14px; line-height: 22px; color: #737373">The standard choice for home energy storage, providing reliable power for deep-cycle applications.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

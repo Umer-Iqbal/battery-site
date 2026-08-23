@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Outfit', system-ui, sans-serif; margin: 0; }
+    p { margin: 0; }
+    a { color: #009DFF; text-decoration: none; }
+    a:hover { color: #0081D1; }
+  </style>
+</helmet>
+
+<div style="width: 880px; height: 820px; background: #FFFFFF; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 36px">
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <p style="font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #009DFF">Option A</p>
+    <h2 style="font-size: 34px; line-height: 38px; font-weight: 600; letter-spacing: -0.025em; color: #0A0A0A">Charge E</h2>
+    <p style="font-size: 15px; line-height: 24px; color: #737373; max-width: 620px; text-wrap: pretty">An <strong style="color: #0A0A0A; font-weight: 500">E</strong> whose three arms are cut on the same diagonal the old NexVolt N used. Read one way it is a letter; read another it is a charge gauge, or three stacked battery modules.</p>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 48px; border-top: 1px solid #E5E5E5; padding-top: 36px">
+    <svg width="148" height="148" viewBox="0 0 32 32" role="img" aria-label="Enersol mark, option A">
+      <path d="M4 3 H10 V29 H4 Z" fill="{{mark}}"></path>
+      <path d="M10 3 H28 L24 9 H10 Z" fill="{{mark}}"></path>
+      <path d="M10 13 H21 L17 19 H10 Z" fill="{{accent}}"></path>
+      <path d="M10 23 H28 L24 29 H10 Z" fill="{{mark}}"></path>
+    </svg>
+    <div style="display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">Why this one</p>
+        <p style="font-size: 14px; line-height: 22px; color: #0A0A0A; text-wrap: pretty">The most legible of the three and the closest to what your customers already recognise. Holds together at 16px with no detail loss.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">The tradeoff</p>
+        <p style="font-size: 14px; line-height: 22px; color: #737373; text-wrap: pretty">Letter marks are crowded in energy — this is competent rather than distinctive, and it says nothing about bikes or solar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #E5E5E5; padding-top: 28px">
+    <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">Lockup</p>
+    <div style="display: flex; align-items: center; gap: 14px">
+      <svg width="38" height="38" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M4 3 H10 V29 H4 Z" fill="{{mark}}"></path>
+        <path d="M10 3 H28 L24 9 H10 Z" fill="{{mark}}"></path>
+        <path d="M10 13 H21 L17 19 H10 Z" fill="{{accent}}"></path>
+        <path d="M10 23 H28 L24 29 H10 Z" fill="{{mark}}"></path>
+      </svg>
+      <span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 27px; font-weight: 500; letter-spacing: 0.2em; color: #0A0A0A">ENERSOL</span>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #E5E5E5; padding-top: 28px">
+    <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">Holds up small</p>
+    <div style="display: flex; align-items: flex-end; gap: 40px">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 3 H10 V29 H4 Z" fill="{{mark}}"></path>
+          <path d="M10 3 H28 L24 9 H10 Z" fill="{{mark}}"></path>
+          <path d="M10 13 H21 L17 19 H10 Z" fill="{{accent}}"></path>
+          <path d="M10 23 H28 L24 29 H10 Z" fill="{{mark}}"></path>
+        </svg>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">32px</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 3 H10 V29 H4 Z" fill="{{mark}}"></path>
+          <path d="M10 3 H28 L24 9 H10 Z" fill="{{mark}}"></path>
+          <path d="M10 13 H21 L17 19 H10 Z" fill="{{accent}}"></path>
+          <path d="M10 23 H28 L24 29 H10 Z" fill="{{mark}}"></path>
+        </svg>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">24px</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 3 H10 V29 H4 Z" fill="{{mark}}"></path>
+          <path d="M10 3 H28 L24 9 H10 Z" fill="{{mark}}"></path>
+          <path d="M10 13 H21 L17 19 H10 Z" fill="{{accent}}"></path>
+          <path d="M10 23 H28 L24 29 H10 Z" fill="{{mark}}"></path>
+        </svg>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">16px · favicon</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <div style="width: 44px; height: 44px; border-radius: 16px; background: #0A0A0A; display: flex; align-items: center; justify-content: center">
+          <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M4 3 H10 V29 H4 Z" fill="#FFFFFF"></path>
+            <path d="M10 3 H28 L24 9 H10 Z" fill="#FFFFFF"></path>
+            <path d="M10 13 H21 L17 19 H10 Z" fill="{{accent}}"></path>
+            <path d="M10 23 H28 L24 29 H10 Z" fill="#FFFFFF"></path>
+          </svg>
+        </div>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">App icon</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <svg width="38" height="38" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 3 H10 V29 H4 Z" fill="#0A0A0A"></path>
+          <path d="M10 3 H28 L24 9 H10 Z" fill="#0A0A0A"></path>
+          <path d="M10 13 H21 L17 19 H10 Z" fill="#0A0A0A"></path>
+          <path d="M10 23 H28 L24 29 H10 Z" fill="#0A0A0A"></path>
+        </svg>
+        <span style="font-size: 10px; line-height: 14px; color: #737373; letter-spacing: 0.06em">One colour</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #E5E5E5; padding-top: 28px">
+    <p style="font-size: 10px; line-height: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #737373">In the navbar</p>
+    <div style="height: 64px; border: 1px solid #E5E5E5; border-radius: 16px; background: #FFFFFF; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; overflow: hidden">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 3 H10 V29 H4 Z" fill="{{mark}}"></path>
+          <path d="M10 3 H28 L24 9 H10 Z" fill="{{mark}}"></path>
+          <path d="M10 13 H21 L17 19 H10 Z" fill="{{accent}}"></path>
+          <path d="M10 23 H28 L24 29 H10 Z" fill="{{mark}}"></path>
+        </svg>
+        <span style="font-family: 'Outfit', system-ui, sans-serif; font-size: 17px; font-weight: 500; letter-spacing: 0.16em; color: #0A0A0A">ENERSOL</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 28px">
+        <span style="font-size: 14px; font-weight: 500; color: #0A0A0A">Products</span>
+        <span style="font-size: 14px; font-weight: 500; color: #737373">Calculator</span>
+        <span style="font-size: 14px; font-weight: 500; color: #737373">Dealer</span>
+        <span style="display: inline-flex; align-items: center; padding: 8px 20px; border-radius: 16px; background: #0A0A0A; color: #FFFFFF; font-size: 12px; font-weight: 500; letter-spacing: 0.025em">Get Quote</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"markColor":{"editor":"color","default":"#009DFF","options":["#009DFF","#7AC92C","#0A0A0A"],"section":"Mark"},"$preview":{"width":880,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mark = this.props.markColor ?? '#009DFF';
+    const accent = mark === '#0A0A0A' ? '#0A0A0A' : '#7AC92C';
+    return { mark: mark, accent: accent };
+  }
+}
+</script>
+</body>
+</html>
