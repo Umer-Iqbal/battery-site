@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#FFFFFF"/>
+  <g transform="translate(96,232) scale(4.2)">
+    <path d="M14.21 5.54 L6.04 10.25 L6.04 21.75 L16 27.5 L25.96 21.75 L25.96 10.25" stroke="#009DFF" stroke-width="3" stroke-linejoin="miter"/>
+    <path d="M25.96 10.25 L19.78 6.69" stroke="#7AC92C" stroke-width="3"/>
+  </g>
+  <text x="268" y="326" font-family="Outfit, Avenir Next, Helvetica Neue, sans-serif" font-weight="500"
+        font-size="76" letter-spacing="12.2" fill="#0A0A0A">ENERSOL</text>
+  <text x="272" y="392" font-family="Outfit, Avenir Next, Helvetica Neue, sans-serif" font-weight="400"
+        font-size="30" fill="#737373">PowerPacks &amp; Electric Bikes</text>
+  <rect x="0" y="614" width="1200" height="16" fill="#009DFF"/>
+  <rect x="720" y="614" width="480" height="16" fill="#7AC92C"/>
+</svg>
