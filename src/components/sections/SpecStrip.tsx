@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const specs = [
   { value: '2', label: 'Product lines, one supplier' },
   { value: '6,000+', label: 'Battery cycles' },
-  { value: '[60] km', label: 'Bike range, eco mode' },
+  { value: '[80] km', label: 'Scooter range, eco mode' },
 ];
 
 export default function SpecStrip() {

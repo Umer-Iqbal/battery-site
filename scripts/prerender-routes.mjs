@@ -8,16 +8,16 @@
  * other than `/` produced no preview card at all.
  *
  * Copying index.html to a real path per route makes every route answer 200, so
- * the Open Graph tags baked into index.html are honoured everywhere. All routes
- * therefore share the homepage's image, title and description — intentional for
- * now. Per-page metadata needs true prerendering (rendering React per route);
- * this is the cheap 90% that fixes link previews.
+ * the Open Graph tags baked into index.html are honoured everywhere. Each copy
+ * gets that route's title, description and canonical URL written into the head
+ * (the same values SeoHead sets at runtime), so a shared product link previews
+ * as that product. The share image stays the brand card for every route.
  *
  * Routes come from the app's own data (`routeSeo` + `products`) rather than a
  * hardcoded list, so adding a product or family needs no edit here.
  */
 import { build } from 'esbuild';
-import { mkdir, copyFile, writeFile, readFile, rm } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -31,19 +31,22 @@ async function collectRoutes() {
   await build({
     stdin: {
       contents: `
-        import { routeSeo } from '@/lib/seo-config';
+        import { routeSeo, buildProductSeo, getCanonicalUrl } from '@/lib/seo-config';
         import { products } from '@/data/products';
         import { productPath } from '@/data/families';
 
-        const paths = new Set(Object.keys(routeSeo));
+        const seo = (m) => ({ title: m.title, description: m.description, url: getCanonicalUrl(m.path) });
+        const meta = new Map(Object.entries(routeSeo).map(([path, m]) => [path, seo(m)]));
         for (const p of products) {
-          paths.add(productPath(p));
-          // Pre-rebrand slugs are live in the wild and still resolve.
+          const m = seo(buildProductSeo(p));
+          meta.set(productPath(p), m);
+          // Pre-rebrand slugs are live in the wild and still resolve; their
+          // canonical points at the current URL.
           for (const legacy of p.legacySlugs ?? []) {
-            paths.add(productPath({ family: p.family, slug: legacy }));
+            meta.set(productPath({ family: p.family, slug: legacy }), m);
           }
         }
-        export const routes = [...paths];
+        export const routes = [...meta].map(([path, m]) => ({ path, ...m }));
       `,
       resolveDir: root,
       loader: 'ts',
@@ -73,15 +76,38 @@ if (!html.includes('og:image')) {
 // SPA fallback for anything not in the route list (still a 404 status).
 await writeFile(join(dist, '404.html'), html);
 
+const escapeHtml = (s) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/** Swap the shell's homepage tags for this route's. Throws if a tag is missing. */
+function withRouteMeta(source, { title, description, url }) {
+  const [t, d, u] = [title, description, url].map(escapeHtml);
+  const swaps = [
+    [/(<title>)[^<]*/, t],
+    [/(<meta name="description" content=")[^"]*/, d],
+    [/(<link rel="canonical" href=")[^"]*/, u],
+    [/(<meta property="og:title" content=")[^"]*/, t],
+    [/(<meta property="og:description" content=")[^"]*/, d],
+    [/(<meta property="og:url" content=")[^"]*/, u],
+    [/(<meta name="twitter:title" content=")[^"]*/, t],
+    [/(<meta name="twitter:description" content=")[^"]*/, d],
+  ];
+  return swaps.reduce((out, [re, value]) => {
+    if (!re.test(out)) throw new Error(`index.html is missing ${re} — per-route meta would ship stale.`);
+    // A function replacer, so a "$" in copy (prices) is never read as a pattern.
+    return out.replace(re, (_, prefix) => prefix + value);
+  }, source);
+}
+
 const routes = await collectRoutes();
 const written = [];
 
 for (const route of routes) {
-  const clean = route.replace(/\/+$/, '');
+  const clean = route.path.replace(/\/+$/, '');
   if (!clean) continue; // '/' is dist/index.html already
   const target = join(dist, clean, 'index.html');
   await mkdir(dirname(target), { recursive: true });
-  await copyFile(shell, target);
+  await writeFile(target, withRouteMeta(html, route));
   written.push(clean);
 }
 

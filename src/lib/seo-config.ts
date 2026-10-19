@@ -1,6 +1,6 @@
 import { BRAND } from '@/lib/brand';
 import { PRODUCT_FAMILIES, productPath, FAMILY_BY_ID } from '@/data/families';
-import { cardSpecs, type Product } from '@/data/products';
+import { cardSpecs, isBike, type Product } from '@/data/products';
 
 export interface SeoMeta {
   title: string;
@@ -120,7 +120,8 @@ export function buildWebSiteSchema() {
 
 export function buildProductSeo(product: Product): SeoMeta {
   return {
-    title: `${product.name} | ${BRAND.name}`,
+    // "Electric Scooter" is what riders in Pakistan search for, not the trim name.
+    title: isBike(product) ? `${product.name} Electric Scooter | ${BRAND.name}` : `${product.name} | ${BRAND.name}`,
     description: product.description,
     path: productPath(product),
     type: 'product',

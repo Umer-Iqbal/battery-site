@@ -10,8 +10,8 @@ export const BRAND = {
   domain: 'enersol.pro',
   siteUrl: 'https://enersol.pro',
   email: 'enersol328@gmail.com',
-  phoneE164: '+923058857549',
-  phoneDisplay: '0305 8857549',
+  phoneE164: '+923094807804',
+  phoneDisplay: '0309 4807804',
   location: 'Lahore, Pakistan',
   tagline: 'PowerPacks & Electric Bikes',
   description:

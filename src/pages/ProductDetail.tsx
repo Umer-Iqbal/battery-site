@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { cardSpecs, findProduct, resolveLegacySlug } from '../data/products';
+import { findProduct, isBike, keyStats, resolveLegacySlug } from '../data/products';
 import { cn } from '@/utils/cn';
 import SeoHead from '@/components/SeoHead';
 import LazyImage from '@/components/ui/LazyImage';
@@ -11,10 +11,13 @@ import {
   ArrowLeft,
   ShieldCheck,
   Zap,
-  RefreshCcw,
+  Gauge,
   Battery,
+  Layers,
   MessageSquare,
 } from 'lucide-react';
+
+const STAT_ICONS = [Zap, Battery, Gauge, Layers];
 
 export default function ProductDetail() {
   const { family: familyParam, slug } = useParams<{ family: string; slug: string }>();
@@ -56,7 +59,7 @@ export default function ProductDetail() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }}>
-              <div className="text-primary font-medium uppercase tracking-widest mb-4 text-sm">{product.type} Series</div>
+              <div className="text-primary font-medium uppercase tracking-widest mb-4 text-sm">{product.type} {isBike(product) ? 'trim' : 'Series'}</div>
               <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-foreground">{product.name}</h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">{product.description}</p>
               <div className="flex flex-wrap gap-4">
@@ -79,29 +82,18 @@ export default function ProductDetail() {
       {/* Key numbers — units, not feature labels, so this reads for any family */}
       <section className="py-16 border-b border-border bg-background">
         <div className="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {cardSpecs(product).map((chip, i) => (
-            <div key={chip.label} className="flex flex-col gap-3 text-center items-center">
-              <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-primary">
-                {i % 2 === 0 ? <Zap size={20} /> : <Battery size={20} />}
+          {keyStats(product).map((chip, i) => {
+            const Icon = STAT_ICONS[i % STAT_ICONS.length];
+            return (
+              <div key={chip.label} className="flex flex-col gap-3 text-center items-center">
+                <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-primary">
+                  <Icon size={20} />
+                </div>
+                <div className="text-2xl font-semibold tracking-tight text-foreground">{chip.value}</div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground -mt-2">{chip.label}</div>
               </div>
-              <div className="text-2xl font-semibold tracking-tight text-foreground">{chip.value}</div>
-              <div className="text-xs uppercase tracking-widest text-muted-foreground -mt-2">{chip.label}</div>
-            </div>
-          ))}
-          <div className="flex flex-col gap-3 text-center items-center">
-            <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-primary">
-              <ShieldCheck size={20} />
-            </div>
-            <div className="text-2xl font-semibold tracking-tight text-foreground">{family.label.split(' ')[0]}</div>
-            <div className="text-xs uppercase tracking-widest text-muted-foreground -mt-2">Range</div>
-          </div>
-          <div className="flex flex-col gap-3 text-center items-center">
-            <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-primary">
-              <RefreshCcw size={20} />
-            </div>
-            <div className="text-2xl font-semibold tracking-tight text-foreground">{product.type}</div>
-            <div className="text-xs uppercase tracking-widest text-muted-foreground -mt-2">Series</div>
-          </div>
+            );
+          })}
         </div>
       </section>
 

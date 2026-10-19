@@ -35,8 +35,8 @@ export default function Home() {
                 Electric bikes
               </h2>
               <p className="text-muted-foreground text-lg">
-                Same cells, same BMS, same warranty desk &mdash; on two wheels instead of a wall
-                bracket.
+                The Arrow One, in three trims. A pack you lift out and charge indoors, disc brakes
+                front and rear, and no more petrol queues.
               </p>
             </div>
 

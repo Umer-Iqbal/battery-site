@@ -2,7 +2,7 @@ import { Battery, Bike, Sun, Zap, type LucideIcon } from 'lucide-react';
 import { BRAND } from '@/lib/brand';
 
 export const BATTERY_TYPES = ['Residential', 'Commercial', 'Portable'] as const;
-export const BIKE_TYPES = ['City', 'Cargo', 'Off-road'] as const;
+export const BIKE_TYPES = ['City', 'Cargo', 'Pro'] as const;
 export type BatteryType = (typeof BATTERY_TYPES)[number];
 export type BikeType = (typeof BIKE_TYPES)[number];
 
@@ -38,11 +38,11 @@ export const PRODUCT_FAMILIES: readonly ProductFamily[] = [
     icon: Bike,
     types: BIKE_TYPES,
     blurb:
-      'City, cargo and off-road frames on the same cells we put in our batteries.',
-    lead: 'The same cells and the same warranty desk as our batteries, on two wheels. Removable packs you charge indoors.',
-    seoTitle: `Electric Bikes | ${BRAND.name}`,
+      'The Arrow One electric scooter in City, Cargo and Pro trims. Removable pack, disc brakes, zero petrol.',
+    lead: 'Arrow One: one step-through electric scooter in three trims. Lift the pack out, charge it indoors from any socket, and leave the petrol pump behind.',
+    seoTitle: `Arrow One Electric Scooters in Pakistan | ${BRAND.name}`,
     seoDescription:
-      'City, cargo and off-road electric bikes with removable LiFePO4 packs, smart BMS and app monitoring.',
+      'Arrow One electric scooters and e-bikes in Pakistan: City, Cargo and Pro trims with removable LiFePO4 packs, disc brakes front and rear, and app monitoring.',
   },
   {
     id: 'powerpacks',

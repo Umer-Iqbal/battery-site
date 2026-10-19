@@ -35,7 +35,6 @@ export interface BikeProduct extends ProductBase {
   range: string;
   topSpeed: string;
   battery: string;
-  frameSize: string;
 }
 
 export type Product = BatteryProduct | BikeProduct;
@@ -63,6 +62,26 @@ export function cardSpecs(p: Product): SpecChip[] {
       return [
         { label: 'Motor', value: p.motorPower },
         { label: 'Range', value: p.range },
+      ];
+  }
+}
+
+/** The four headline numbers on a product detail page. */
+export function keyStats(p: Product): SpecChip[] {
+  switch (p.family) {
+    case 'powerpacks':
+      return [
+        { label: 'Voltage', value: p.voltage },
+        { label: 'Capacity', value: p.capacity },
+        { label: 'Energy', value: `${p.energyKwh} kWh` },
+        { label: 'Series', value: p.type },
+      ];
+    case 'electric-bikes':
+      return [
+        { label: 'Motor', value: p.motorPower },
+        { label: 'Range', value: p.range },
+        { label: 'Top speed', value: p.topSpeed },
+        { label: 'Trim', value: p.type },
       ];
   }
 }

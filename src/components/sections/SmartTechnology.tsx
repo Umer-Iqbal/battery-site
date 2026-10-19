@@ -12,8 +12,8 @@ const DEVICES = [
   },
   {
     icon: Bike,
-    title: 'City bike · Garage',
-    detail: 'Charging · full in 40 min',
+    title: 'City scooter · Garage',
+    detail: 'Charging · full in 6 h',
     value: '61%',
     valueClass: 'text-primary',
   },
